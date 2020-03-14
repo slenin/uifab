@@ -1,0 +1,55 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import Box from './Box';
+import EllipsisText from './EllipsisText';
+import { withStyles } from './styles';
+
+function Navs(props) {
+  const {
+    children,
+    className,
+    title,
+  } = props;
+
+  return (
+    <Box className={className}>
+      {title && (
+        <EllipsisText
+          color="muted"
+          fontWeight="bold"
+          mb={1}
+          value={title}
+        />
+      )}
+      {children.map((child, index) => {
+        if (!child) {
+          return null;
+        }
+
+        return (
+          <Box
+            key={child.props.text || index}
+            mb={1}
+          >
+            {child}
+          </Box>
+        );
+      })}
+    </Box>
+  );
+}
+
+Navs.propTypes = {
+  children: PropTypes.arrayOf(PropTypes.node),
+  className: PropTypes.string,
+  title: PropTypes.string,
+};
+
+Navs.defaultProps = {
+  children: null,
+  className: null,
+  title: null,
+};
+
+export default withStyles(Navs);
