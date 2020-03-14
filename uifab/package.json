@@ -1,6 +1,6 @@
 {
   "name": "uifab",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": false,
   "license": "MIT",
   "main": "dist/index.js",
@@ -52,7 +52,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src",
-    "publish:npm": "SET NODE_ENV=production && rmdir /s /q dist && mkdir dist && npx babel src/uifab --out-dir dist --copy-files"
+    "publish": "SET NODE_ENV=production && rmdir /s /q dist && mkdir dist && npx babel src/uifab --out-dir dist --copy-files"
   },
   "eslintConfig": {
     "extends": "react-app"

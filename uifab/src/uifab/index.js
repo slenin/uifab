@@ -16,6 +16,7 @@ import Flex from './Flex';
 import Form from './Form';
 import FormError from './FormError';
 import history from './history';
+import HttpClient from './HttpClient';
 import Icon from './Icon';
 import IconButton from './IconButton';
 import Image from './Image';
@@ -43,6 +44,7 @@ import TimePicker from './TimePicker';
 import Tooltip from './Tooltip';
 import TruncatedText from './TruncatedText';
 import { useTheme, withStyles } from './styles';
+import useApi from './useApi';
 import {
   Route, Switch,
   useHistory, useLocation, useParams, useRouteMatch,
@@ -53,10 +55,10 @@ export {
   Badge, Box, Button, Card, CodeInput, DatePicker,
   Divider, DateTimePicker, Dropdown, DropdownTabItem,
   EllipsisText, Error, FabProvider, Field, Flex, Form, FormError, history,
-  Icon, IconButton, Image, Input, Label, Link, Loading,
+  HttpClient, Icon, IconButton, Image, Input, Label, Link, Loading,
   Modal, ModalSwitch, MenuItem, NavItem, Navs, Page,
   RichText, RichTextInput, Route, Select, Section, SortableList, Switch,
   TabItem, Tabs, Text, Textarea, ThemeProvider,
-  TimePicker, Tooltip, TruncatedText,
-  useHistory, useLocation, useParams, useRouteMatch, useTheme, withRouter, withStyles,
+  TimePicker, Tooltip, TruncatedText, useApi, useHistory, useLocation,
+  useParams, useRouteMatch, useTheme, withRouter, withStyles,
 };
