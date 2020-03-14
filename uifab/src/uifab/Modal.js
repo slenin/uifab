@@ -30,6 +30,7 @@ function Modal(props) {
   };
   const contentStyle = {
     minWidth: theme.minimumWidth,
+    outline: 'none',
   };
 
   return (

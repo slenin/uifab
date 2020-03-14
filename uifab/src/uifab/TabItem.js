@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router';
+import { useLocation } from 'react-router';
 
 import Badge from './Badge';
 import Box from './Box';
@@ -11,9 +11,10 @@ import { withStyles } from './styles';
 
 function TabItem(props) {
   const {
-    active, activeIcon, badge, className, icon, location,
+    active, activeIcon, badge, className, icon,
     onClick, to, text,
   } = props;
+  const location = useLocation();
   const isActive = location.pathname === to || active;
   const hasIcon = icon && true;
   return (
@@ -75,9 +76,6 @@ TabItem.propTypes = {
     PropTypes.string,
     PropTypes.node,
   ]),
-  location: PropTypes.shape({
-    pathname: PropTypes.string,
-  }).isRequired,
   onClick: PropTypes.func,
   to: PropTypes.oneOfType([
     PropTypes.string,
@@ -97,7 +95,7 @@ TabItem.defaultProps = {
   text: null,
 };
 
-export default withRouter(withStyles(TabItem,
+export default withStyles(TabItem,
   (props, { css }) => css({
     borderBottomWidth: 2,
     borderBottomStyle: 'solid',
@@ -108,4 +106,4 @@ export default withRouter(withStyles(TabItem,
     '&:hover': {
       color: 'primary',
     },
-  })));
+  }));
