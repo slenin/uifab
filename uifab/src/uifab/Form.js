@@ -6,7 +6,7 @@ import { Formik } from 'formik';
 import Button from './Button';
 import FormError from './FormError';
 import FormContext from './FormContext';
-import { withStyles } from './styles';
+import style from './style';
 
 function Form(props) {
   const {
@@ -113,4 +113,4 @@ Form.defaultProps = {
   validationSchema: null,
 };
 
-export default withStyles(Form);
+export default style(Form);

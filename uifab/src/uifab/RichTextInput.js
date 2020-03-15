@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import ReactQuill from 'react-quill';
 
-import { useTheme, withStyles } from './styles';
+import style from './style';
+import useTheme from './useTheme';
 
 import 'react-quill/dist/quill.snow.css';
 
@@ -100,4 +101,4 @@ RichTextInput.defaultProps = {
   value: null,
 };
 
-export default withStyles(RichTextInput);
+export default style(RichTextInput);

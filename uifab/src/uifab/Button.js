@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 import Icon from './Icon';
-import { withStyles } from './styles';
+import Link from './Link';
+import style from './style';
 
 function Button(props) {
   const {
@@ -83,7 +83,7 @@ Button.defaultProps = {
   type: 'button',
 };
 
-const StyledButton = withStyles(Button,
+const StyledButton = style(Button,
   (props, { variant }) => (variant({
     prop: 'format',
     variants: {
@@ -151,9 +151,10 @@ const StyledButton = withStyles(Button,
         cursor: 'pointer',
         fontFamily: 'inherit',
         fontSize: 'inherit',
+        outline: 'none',
         p: 0,
         '&:hover': {
-          color: 'inherit',
+          opacity: 0.8,
         },
         '&:disabled': {
           opacity: 0.8,

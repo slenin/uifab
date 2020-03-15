@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import ReactSelect from 'react-select';
 
-import { useTheme, withStyles } from './styles';
+import style from './style';
+import useTheme from './useTheme';
 
 function Select(props) {
   const {
@@ -81,4 +82,4 @@ Select.defaultProps = {
   value: null,
 };
 
-export default withStyles(Select);
+export default style(Select);

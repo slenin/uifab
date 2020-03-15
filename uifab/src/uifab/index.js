@@ -3,6 +3,8 @@ import Box from './Box';
 import Button from './Button';
 import Card from './Card';
 import CodeInput from './CodeInput';
+import Container from './Container';
+import Content from './Content';
 import DatePicker from './DatePicker';
 import DateTimePicker from './DateTimePicker';
 import Divider from './Divider';
@@ -13,9 +15,11 @@ import Error from './Error';
 import FabProvider from './FabProvider';
 import Field from './Field';
 import Flex from './Flex';
+import Footer from './Footer';
 import Form from './Form';
 import FormError from './FormError';
 import history from './history';
+import Header from './Header';
 import HttpClient from './HttpClient';
 import Icon from './Icon';
 import IconButton from './IconButton';
@@ -23,6 +27,7 @@ import Image from './Image';
 import Input from './Input';
 import Label from './Label';
 import Link from './Link';
+import Layout from './Layout';
 import Loading from './Loading';
 import MenuItem from './MenuItem';
 import Modal from './Modal';
@@ -40,11 +45,13 @@ import Tabs from './Tabs';
 import Text from './Text';
 import Textarea from './Textarea';
 import ThemeProvider from './ThemeProvider';
+import Time from './Time';
 import TimePicker from './TimePicker';
 import Tooltip from './Tooltip';
 import TruncatedText from './TruncatedText';
-import { useTheme, withStyles } from './styles';
+import style from './style';
 import useApi from './useApi';
+import useTheme from './useTheme';
 import {
   Route, Switch,
   useHistory, useLocation, useParams, useRouteMatch,
@@ -52,13 +59,13 @@ import {
 } from './router';
 
 export {
-  Badge, Box, Button, Card, CodeInput, DatePicker,
+  Badge, Box, Button, Card, CodeInput, Container, Content, DatePicker,
   Divider, DateTimePicker, Dropdown, DropdownTabItem,
-  EllipsisText, Error, FabProvider, Field, Flex, Form, FormError, history,
-  HttpClient, Icon, IconButton, Image, Input, Label, Link, Loading,
+  EllipsisText, Error, FabProvider, Field, Flex, Footer, Form, FormError, Header,
+  history, HttpClient, Icon, IconButton, Image, Input, Label, Layout, Link, Loading,
   Modal, ModalSwitch, MenuItem, NavItem, Navs, Page,
-  RichText, RichTextInput, Route, Select, Section, SortableList, Switch,
+  RichText, RichTextInput, Route, Select, Section, SortableList, style, Switch,
   TabItem, Tabs, Text, Textarea, ThemeProvider,
-  TimePicker, Tooltip, TruncatedText, useApi, useHistory, useLocation,
-  useParams, useRouteMatch, useTheme, withRouter, withStyles,
+  Time, TimePicker, Tooltip, TruncatedText, useApi, useHistory, useLocation,
+  useParams, useRouteMatch, useTheme, withRouter,
 };

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Box from './Box';
 import Error from './Error';
 import Loading from './Loading';
-import { withStyles } from './styles';
+import style from './style';
 
 function Section(props) {
   const {
@@ -50,4 +50,4 @@ Section.defaultProps = {
   loading: null,
 };
 
-export default withStyles(Section);
+export default style(Section);

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Truncate from 'react-truncate';
 
 import Button from './Button';
-import { withStyles } from './styles';
+import style from './style';
 
 const STRINGS = {
   more: 'See more',
@@ -78,4 +78,4 @@ TruncatedText.defaultProps = {
   text: null,
 };
 
-export default withStyles(TruncatedText);
+export default style(TruncatedText);

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Button from './Button';
 import Icon from './Icon';
-import { withStyles } from './styles';
+import style from './style';
 
 function IconButton(props) {
   const {
@@ -36,7 +36,7 @@ IconButton.defaultProps = {
   onClick: null,
 };
 
-export default withStyles(IconButton, {
+export default style(IconButton, {
   color: 'inherit',
   '&:hover': {
     opacity: 0.8,

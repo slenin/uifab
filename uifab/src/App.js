@@ -2,24 +2,42 @@ import React from 'react';
 
 import {
   Button,
-  Modal,
-  Input,
-  Text,
+  Content,
+  Flex,
+  Footer,
+  Header,
+  Layout,
+  NavItem,
+  Time,
 } from 'uifab';
 
 function App() {
   return (
-    <>
-      <Text
-        value="Hello"
+    <Layout>
+      <Header
+        left={(
+          <Button
+            format="link"
+            to="/"
+            fontSize="large"
+            fontWeight="bold"
+            text="Product name"
+          />
+        )}
+        right={(
+          <Flex>
+            <NavItem to="/" text="Option 1" />
+            <NavItem to="/abc" ml={14} text="Option 2" />
+          </Flex>
+        )}
       />
-      <Modal title="Modal">
-        <Button
-          text="Click me"
-        />
-        <Input />
-      </Modal>
-    </>
+      <Content pt="4rem">
+        {Time.ago(Time.now() - 20)}
+      </Content>
+      <Footer pt={4} pb="4rem">
+        Footer
+      </Footer>
+    </Layout>
   );
 }
 

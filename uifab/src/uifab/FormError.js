@@ -5,7 +5,7 @@ import Box from './Box';
 import Flex from './Flex';
 import Icon from './Icon';
 import IconButton from './IconButton';
-import { withStyles } from './styles';
+import style from './style';
 
 function FormError(props) {
   const {
@@ -47,7 +47,7 @@ FormError.defaultProps = {
   onClose: null,
 };
 
-export default withStyles(FormError, {
+export default style(FormError, {
   p: 2,
   bg: 'error',
   borderRadius: 4,

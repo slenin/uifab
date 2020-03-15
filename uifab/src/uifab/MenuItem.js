@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Box from './Box';
 import Button from './Button';
 import Divider from './Divider';
-import { withStyles } from './styles';
+import style from './style';
 
 function MenuItem(props) {
   const {
@@ -58,7 +58,7 @@ MenuItem.defaultProps = {
   text: null,
 };
 
-export default withStyles(MenuItem, {
+export default style(MenuItem, {
   color: 'black',
   cursor: 'pointer',
   display: 'block',

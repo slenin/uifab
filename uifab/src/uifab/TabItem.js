@@ -7,7 +7,7 @@ import Box from './Box';
 import Button from './Button';
 import Icon from './Icon';
 import Text from './Text';
-import { withStyles } from './styles';
+import style from './style';
 
 function TabItem(props) {
   const {
@@ -95,7 +95,7 @@ TabItem.defaultProps = {
   text: null,
 };
 
-export default withStyles(TabItem,
+export default style(TabItem,
   (props, { css }) => css({
     borderBottomWidth: 2,
     borderBottomStyle: 'solid',

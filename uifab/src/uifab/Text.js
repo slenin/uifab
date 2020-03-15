@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { withStyles } from './styles';
+import style from './style';
 
 function Text(props) {
   const {
@@ -31,4 +31,4 @@ Text.defaultProps = {
   value: null,
 };
 
-export default withStyles(Text);
+export default style(Text);

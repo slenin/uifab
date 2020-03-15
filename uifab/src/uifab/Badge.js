@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Text from './Text';
-import { withStyles } from './styles';
+import style from './style';
 
 function Badge(props) {
   const {
@@ -27,7 +27,7 @@ Badge.defaultProps = {
   text: null,
 };
 
-export default withStyles(Badge, {
+export default style(Badge, {
   borderRadius: 4,
   bg: 'error',
   color: 'white',

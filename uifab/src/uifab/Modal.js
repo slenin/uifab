@@ -6,8 +6,7 @@ import Box from './Box';
 import Error from './Error';
 import Loading from './Loading';
 import Titlebar from './Titlebar';
-import { useMobile } from './responsive';
-import { useTheme, withStyles } from './styles';
+import style from './style';
 
 function Modal(props) {
   const {
@@ -15,10 +14,8 @@ function Modal(props) {
     error, loading,
     removePadding, subtitle, title,
   } = props;
-  const theme = useTheme();
-  const isMobile = useMobile();
   const overlayStyle = {
-    backgroundColor: `rgba(255, 255, 255, ${isMobile ? '1' : '0.9'})`,
+    backgroundColor: ['rgba(255, 255, 255, 1)', 'rgba(255, 255, 255, 0.9)'],
     overflowX: 'auto',
     overflowY: 'scroll',
     bottom: 0,
@@ -27,10 +24,6 @@ function Modal(props) {
     right: 0,
     top: 0,
     zIndex: 1,
-  };
-  const contentStyle = {
-    minWidth: theme.minimumWidth,
-    outline: 'none',
   };
 
   return (
@@ -47,7 +40,6 @@ function Modal(props) {
       contentLabel={title}
       style={{
         overlay: overlayStyle,
-        content: contentStyle,
       }}
     >
       {title && (
@@ -113,7 +105,7 @@ Modal.defaultProps = {
   title: null,
 };
 
-export default withStyles(Modal, {
+export default style(Modal, (props, { css, themeGet }) => css({
   bg: 'white',
   borderColor: 'border',
   borderRadius: 4,
@@ -125,8 +117,10 @@ export default withStyles(Modal, {
   marginLeft: [0, 'auto'],
   marginRight: [0, 'auto'],
   marginTop: [0, 40],
+  minWidth: themeGet('minimumWidth', 0)(props),
+  outline: 'none',
   overflow: 'hidden',
   right: 0,
   top: 0,
   width: ['auto', '30em'],
-});
+}));

@@ -1,6 +1,6 @@
-import { withStyles } from './styles';
+import style from './style';
 
-const Label = withStyles('label', {
+const Label = style('label', {
   color: 'muted',
   fontSize: '0.875em',
   mb: 1,

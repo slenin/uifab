@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Dropdown as ReactDropdown } from 'react-bootstrap';
 
 import Box from './Box';
-import { withStyles } from './styles';
+import style from './style';
 
 const Toggle = React.forwardRef((props, ref) => (
   <Box
@@ -114,6 +114,6 @@ Dropdown.defaultProps = {
   toggle: null,
 };
 
-export default withStyles(Dropdown, {
+export default style(Dropdown, {
   height: '100%',
 });

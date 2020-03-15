@@ -1,7 +1,7 @@
 import Text from './Text';
-import { withStyles } from './styles';
+import style from './style';
 
-const EllipsisText = withStyles(Text, {
+const EllipsisText = style(Text, {
   overflow: 'hidden',
   textOverflow: 'ellipsis',
   whiteSpace: 'nowrap',

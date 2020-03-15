@@ -1,7 +1,11 @@
 import { Link } from 'react-router-dom';
 
-import { withStyles } from './styles';
+import style from './style';
 
-export default withStyles(Link, {
-  color: 'primary',
+export default style(Link, {
+  color: 'inherit',
+  textDecoration: 'none',
+  '&:hover': {
+    opacity: 0.8,
+  },
 });

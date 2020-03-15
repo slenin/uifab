@@ -1,6 +1,6 @@
 import { useMediaQuery } from 'react-responsive';
 
-import { useTheme } from './styles';
+import useTheme from './useTheme';
 
 const NotMobile = ({ children }) => {
   const theme = useTheme();

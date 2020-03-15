@@ -1,6 +1,6 @@
-import { withStyles } from './styles';
+import style from './style';
 
-const Image = withStyles('img', {
+const Image = style('img', {
   maxHeight: '100%',
   maxWidth: '100%',
   verticalAlign: 'bottom',

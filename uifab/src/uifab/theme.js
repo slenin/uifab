@@ -1,8 +1,7 @@
-const breakpoints = ['40em', '52em', '64em', '80em'];
+const breakpoints = ['36em', '52em', '64em', '80em'];
 [breakpoints.sm, breakpoints.md, breakpoints.lg, breakpoints.xl] = breakpoints;
 
 const theme = {
-  minimumWidth: '20em',
   space: [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48],
   fontSizes: {
     'xxxx-small': 10,
@@ -37,6 +36,8 @@ const theme = {
     'error-dark': '#ff5f00',
   },
   breakpoints,
+  containerWidths: ['100%', '34em', '50em'],
+  minimumWidth: '20em',
 };
 
 export default theme;

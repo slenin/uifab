@@ -7,7 +7,7 @@ import Button from './Button';
 import EllipsisText from './EllipsisText';
 import Flex from './Flex';
 import Icon from './Icon';
-import { withStyles } from './styles';
+import style from './style';
 
 function NavItem(props) {
   const {
@@ -72,7 +72,7 @@ NavItem.defaultProps = {
 };
 
 
-export default withRouter(withStyles(NavItem,
+export default withRouter(style(NavItem,
   (props, { css }) => css({
     color: props.location.pathname === props.to ? 'primary' : 'inherit',
     width: '100%',

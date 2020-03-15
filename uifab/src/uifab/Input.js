@@ -1,6 +1,6 @@
 import inputStyle from './inputStyle';
-import { withStyles } from './styles';
+import style from './style';
 
-const Input = withStyles('input', inputStyle);
+const Input = style('input', inputStyle);
 
 export default Input;

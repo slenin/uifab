@@ -1,6 +1,6 @@
-import { withStyles } from './styles';
+import style from './style';
 
-const Divider = withStyles('div', {
+const Divider = style('div', {
   bg: 'border',
   height: 1,
   width: '100%',

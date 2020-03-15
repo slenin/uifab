@@ -1,9 +1,9 @@
 import TextareaAutosize from 'react-textarea-autosize';
 
 import inputStyle from './inputStyle';
-import { withStyles } from './styles';
+import style from './style';
 
-const Textarea = withStyles(TextareaAutosize, inputStyle);
+const Textarea = style(TextareaAutosize, inputStyle);
 
 Textarea.defaultProps = {
   minRows: 3,

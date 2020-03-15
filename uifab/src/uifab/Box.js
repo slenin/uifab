@@ -1,6 +1,6 @@
-import { withStyles } from './styles';
+import style from './style';
 
-const Box = withStyles('div', {
+const Box = style('div', {
   boxSizing: 'border-box',
   margin: 0,
   minWidth: 0,

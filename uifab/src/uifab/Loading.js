@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Box from './Box';
 import Icon from './Icon';
-import { withStyles } from './styles';
+import style from './style';
 
 function Loading(props) {
   const { className, children, loading } = props;
@@ -36,7 +36,7 @@ Loading.defaultProps = {
   loading: false,
 };
 
-export default withStyles(Loading, {
+export default style(Loading, {
   color: 'muted',
   mb: 4,
   mt: 4,

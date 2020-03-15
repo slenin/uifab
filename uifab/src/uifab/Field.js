@@ -6,7 +6,7 @@ import FormContext from './FormContext';
 import Label from './Label';
 import Text from './Text';
 import Tooltip from './Tooltip';
-import { withStyles } from './styles';
+import style from './style';
 
 function Field(props) {
   const {
@@ -77,6 +77,6 @@ Field.defaultProps = {
   tooltip: null,
 };
 
-export default withStyles(Field, {
+export default style(Field, {
   mb: 2,
 });

@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import ReactDatePicker from 'react-datepicker';
 
 import inputStyle from './inputStyle';
-import { withStyles } from './styles';
+import style from './style';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -57,4 +57,4 @@ TimePicker.defaultProps = {
   value: new Date(),
 };
 
-export default withStyles(TimePicker, inputStyle);
+export default style(TimePicker, inputStyle);

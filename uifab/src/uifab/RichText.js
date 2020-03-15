@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import ReactQuill from 'react-quill';
 
-import { withStyles } from './styles';
+import style from './style';
 
 import 'react-quill/dist/quill.snow.css';
 
@@ -53,4 +53,4 @@ RichText.defaultProps = {
   value: null,
 };
 
-export default withStyles(RichText);
+export default style(RichText);

@@ -8,7 +8,7 @@ const useApi = (api) => {
     const fetchData = async () => {
       const apiResponse = await apiRef.current();
       setResponse(apiResponse);
-      setIsLoading(isLoading);
+      setIsLoading(false);
     };
     fetchData();
   }, []);
