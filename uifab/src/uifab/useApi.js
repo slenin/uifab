@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 const useApi = (api) => {
-  const [response, setResponse] = useState({});
+  const [response, setResponse] = useState(new Response());
   const [isLoading, setIsLoading] = useState(true);
   const apiRef = useRef(api);
   useEffect(() => {
