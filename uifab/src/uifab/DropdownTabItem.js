@@ -12,6 +12,7 @@ function DropdownTabItem(props) {
   } = props;
   return (
     <Dropdown
+      right={alignRight ? 0 : 'auto'}
       toggle={(
         <TabItem
           className={className}
@@ -21,7 +22,6 @@ function DropdownTabItem(props) {
         />
       )}
       menu={menu}
-      alignRight={alignRight}
     />
   );
 }

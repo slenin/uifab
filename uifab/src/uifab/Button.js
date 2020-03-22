@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import 'focus-visible';
 
+import Box from './Box';
+import focusStyle from './focusStyle';
 import Icon from './Icon';
 import Link from './Link';
 import style from './style';
@@ -18,7 +21,7 @@ function Button(props) {
   );
 
   let element = null;
-  if (as === 'button') {
+  if (as === 'button' && !to) {
     element = (
       /* eslint-disable react/button-has-type */
       <button
@@ -32,17 +35,25 @@ function Button(props) {
       </button>
       /* eslint-enable react/button-has-type */
     );
-  } else if (as === 'div') {
+  } else if (as === 'div' || to) {
     element = (
-      <div className={className}>
-        {content}
-      </div>
+      <Box
+        className={className}
+        disabled={disabled || loading}
+        onClick={(e) => onClick && onClick(e)}
+      >
+        {loading && <Icon icon="spinner" spin />}
+        {!loading && content}
+      </Box>
     );
   }
 
   if (to) {
     return (
-      <Link to={to} target={target}>
+      <Link
+        to={to}
+        target={target}
+      >
         {element}
       </Link>
     );
@@ -62,7 +73,10 @@ Button.propTypes = {
   loading: PropTypes.bool,
   onClick: PropTypes.func,
   target: PropTypes.string,
-  text: PropTypes.string,
+  text: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   to: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({}),
@@ -84,6 +98,21 @@ Button.defaultProps = {
 };
 
 const StyledButton = style(Button,
+  {
+    alignItems: 'center',
+    cursor: 'pointer',
+    display: 'inline-flex',
+    fontFamily: 'inherit',
+    fontSize: 'inherit',
+    justifyContent: 'center',
+    '&:hover': {
+      opacity: 0.8,
+    },
+    '&:disabled': {
+      opacity: 0.8,
+    },
+  },
+  focusStyle,
   (props, { variant }) => (variant({
     prop: 'format',
     variants: {
@@ -94,17 +123,8 @@ const StyledButton = style(Button,
         borderStyle: 'solid',
         borderWidth: 1,
         color: ['accent', 'white', 'light', 'muted', 'border'].includes(props.variant) ? 'black' : 'white',
-        cursor: 'pointer',
-        fontFamily: 'inherit',
-        fontSize: 'inherit',
         px: 3,
         py: 2,
-        '&:hover': {
-          opacity: 0.8,
-        },
-        '&:disabled': {
-          opacity: 0.8,
-        },
       },
       outlined: {
         bg: 'transparent',
@@ -113,17 +133,11 @@ const StyledButton = style(Button,
         borderStyle: 'solid',
         borderWidth: 1,
         color: props.variant,
-        cursor: 'pointer',
-        fontFamily: 'inherit',
-        fontSize: 'inherit',
         px: 3,
         py: 2,
         '&:hover': {
           bg: 'light',
-        },
-        '&:disabled': {
-          bg: 'transparent',
-          opacity: 0.8,
+          opacity: 1,
         },
       },
       text: {
@@ -131,45 +145,20 @@ const StyledButton = style(Button,
         borderRadius: 4,
         borderWidth: 0,
         color: props.variant,
-        cursor: 'pointer',
-        fontFamily: 'inherit',
-        fontSize: 'inherit',
         px: 3,
         py: 2,
         '&:hover': {
           bg: 'light',
-        },
-        '&:disabled': {
-          bg: 'transparent',
-          opacity: 0.8,
+          opacity: 1,
         },
       },
       link: {
         bg: 'transparent',
         border: 0,
         color: props.variant,
-        cursor: 'pointer',
-        fontFamily: 'inherit',
-        fontSize: 'inherit',
-        outline: 'none',
         p: 0,
-        '&:hover': {
-          opacity: 0.8,
-        },
-        '&:disabled': {
-          opacity: 0.8,
-        },
       },
       custom: {
-        cursor: 'pointer',
-        fontFamily: 'inherit',
-        fontSize: 'inherit',
-        '&:hover': {
-          opacity: 0.8,
-        },
-        '&:disabled': {
-          opacity: 0.8,
-        },
       },
     },
   })));

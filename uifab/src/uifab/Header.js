@@ -75,8 +75,11 @@ export default style(Header, {
   bg: 'white',
   position: 'fixed',
   height: '3rem',
-  minWidth: 'inherit',
+  overflowX: 'auto',
   top: 0,
   width: '100%',
   zIndex: 1,
+  '&::-webkit-scrollbar': {
+    display: 'none',
+  },
 });

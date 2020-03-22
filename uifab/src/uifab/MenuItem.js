@@ -23,7 +23,8 @@ function MenuItem(props) {
       <Button
         format="link"
         textAlign="left"
-        width={1}
+        display="block"
+        width="100%"
         onClick={onClick}
         to={to}
       >
@@ -60,7 +61,6 @@ MenuItem.defaultProps = {
 
 export default style(MenuItem, {
   color: 'black',
-  cursor: 'pointer',
   display: 'block',
   p: 2,
   whiteSpace: 'nowrap',

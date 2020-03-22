@@ -11,20 +11,13 @@ import style from './style';
 function Modal(props) {
   const {
     action, children, className,
-    error, loading,
+    error, loading, overlayBg, overlayStyle,
     removePadding, subtitle, title,
   } = props;
-  const overlayStyle = {
-    backgroundColor: ['rgba(255, 255, 255, 1)', 'rgba(255, 255, 255, 0.9)'],
-    overflowX: 'auto',
-    overflowY: 'scroll',
-    bottom: 0,
-    left: 0,
-    position: 'fixed',
-    right: 0,
-    top: 0,
-    zIndex: 1,
-  };
+
+  if (overlayBg && !overlayStyle.backgroundColor) {
+    overlayStyle.backgroundColor = overlayBg;
+  }
 
   return (
     <ReactModal
@@ -83,6 +76,13 @@ Modal.propTypes = {
     PropTypes.node,
   ]),
   loading: PropTypes.bool,
+  overlayBg: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]),
+  overlayStyle: PropTypes.shape({
+    backgroundColor: PropTypes.string,
+  }),
   removePadding: PropTypes.bool,
   subtitle: PropTypes.oneOfType([
     PropTypes.string,
@@ -100,6 +100,17 @@ Modal.defaultProps = {
   className: null,
   error: null,
   loading: null,
+  overlayBg: 'rgba(255, 255, 255, 0.9)',
+  overlayStyle: {
+    bottom: 0,
+    left: 0,
+    overflowX: 'auto',
+    overflowY: 'scroll',
+    position: 'fixed',
+    right: 0,
+    top: 0,
+    zIndex: 1,
+  },
   removePadding: false,
   subtitle: null,
   title: null,
@@ -112,6 +123,7 @@ export default style(Modal, (props, { css, themeGet }) => css({
   borderStyle: 'solid',
   borderWidth: [0, 1],
   bottom: 0,
+  minHeight: ['100vh', 0],
   left: 0,
   marginBottom: [0, 40],
   marginLeft: [0, 'auto'],
@@ -122,5 +134,5 @@ export default style(Modal, (props, { css, themeGet }) => css({
   overflow: 'hidden',
   right: 0,
   top: 0,
-  width: ['auto', '30em'],
+  width: ['100%', '30rem'],
 }));

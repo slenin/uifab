@@ -19,6 +19,9 @@ function TabItem(props) {
   const hasIcon = icon && true;
   return (
     <Button
+      borderBottomColor={isActive ? 'primary' : 'transparent'}
+      color={isActive ? 'primary' : 'inherit'}
+      flexDirection="column"
       className={className}
       format="link"
       onClick={onClick}
@@ -95,15 +98,13 @@ TabItem.defaultProps = {
   text: null,
 };
 
-export default style(TabItem,
-  (props, { css }) => css({
-    borderBottomWidth: 2,
-    borderBottomStyle: 'solid',
-    borderBottomColor: props.location.pathname === props.to || props.active ? 'primary' : 'transparent',
-    color: props.location.pathname === props.to || props.active ? 'primary' : 'inherit',
-    height: '100%',
-    width: '100%',
-    '&:hover': {
-      color: 'primary',
-    },
-  }));
+export default style(TabItem, {
+  borderBottomWidth: 2,
+  borderBottomStyle: 'solid',
+  height: '100%',
+  width: '100%',
+  '&:hover': {
+    color: 'primary',
+    opacity: 1,
+  },
+});

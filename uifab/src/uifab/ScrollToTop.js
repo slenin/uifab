@@ -13,7 +13,7 @@ function ScrollToTop(props) {
 
   useEffect(() => {
     if (!(location.state && location.state.modal)
-      && !(prevLocation && prevLocation.state && location.state.modal)) {
+      && !(prevLocation && prevLocation.state && prevLocation.state.modal)) {
       try {
         window.scroll({
           top: 0,

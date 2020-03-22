@@ -12,6 +12,7 @@ import Dropdown from './Dropdown';
 import DropdownTabItem from './DropdownTabItem';
 import EllipsisText from './EllipsisText';
 import Error from './Error';
+import ExtLink from './ExtLink';
 import FabProvider from './FabProvider';
 import Field from './Field';
 import Flex from './Flex';
@@ -51,6 +52,7 @@ import Tooltip from './Tooltip';
 import TruncatedText from './TruncatedText';
 import style from './style';
 import useApi from './useApi';
+import useModalState from './useModalState';
 import useTheme from './useTheme';
 import {
   Route, Switch,
@@ -61,11 +63,11 @@ import {
 export {
   Badge, Box, Button, Card, CodeInput, Container, Content, DatePicker,
   Divider, DateTimePicker, Dropdown, DropdownTabItem,
-  EllipsisText, Error, FabProvider, Field, Flex, Footer, Form, FormError, Header,
+  EllipsisText, Error, ExtLink, FabProvider, Field, Flex, Footer, Form, FormError, Header,
   history, HttpClient, Icon, IconButton, Image, Input, Label, Layout, Link, Loading,
   Modal, ModalSwitch, MenuItem, NavItem, Navs, Page,
   RichText, RichTextInput, Route, Select, Section, SortableList, style, Switch,
   TabItem, Tabs, Text, Textarea, ThemeProvider,
   Time, TimePicker, Tooltip, TruncatedText, useApi, useHistory, useLocation,
-  useParams, useRouteMatch, useTheme, withRouter,
+  useModalState, useParams, useRouteMatch, useTheme, withRouter,
 };

@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Dropdown as ReactDropdown } from 'react-bootstrap';
+import useOnClickOutside from 'use-onclickoutside';
 
 import Box from './Box';
 import style from './style';
+
+const Wrapper = style(Box, {
+  height: '100%',
+  position: 'relative',
+});
 
 const Toggle = React.forwardRef((props, ref) => (
   <Box
@@ -35,17 +40,24 @@ const Menu = React.forwardRef((props, ref) => (
   <Box
     ref={ref}
     className={props.className}
-    m={0}
-    p={0}
-    borderColor="muted"
+    bg="white"
+    borderColor="border"
     borderRadius={4}
+    borderStyle="solid"
     borderWidth={1}
-    fontSize="inherit"
     boxShadow="0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.2)"
-    overflow="hidden"
+    display={props.show ? 'block' : 'none'}
+    fontSize="inherit"
     minWidth="auto"
+    overflow="hidden"
+    position="absolute"
+    top="100%"
+    zIndex={1000}
     onClick={(e) => {
-      e.preventDefault();
+      if (!props.closeOnClick) {
+        e.preventDefault();
+      }
+
       props.onClick(e);
     }}
   >
@@ -59,44 +71,46 @@ Menu.propTypes = {
     PropTypes.node,
   ]),
   className: PropTypes.string,
+  closeOnClick: PropTypes.bool,
   onClick: PropTypes.func,
+  show: PropTypes.bool,
 };
 
 Menu.defaultProps = {
   children: null,
   className: null,
+  closeOnClick: false,
   onClick: null,
+  show: false,
 };
 
 function Dropdown(props) {
   const {
-    alignRight, className, menu, toggle,
+    className, closeOnClick, menu, toggle,
   } = props;
-  const [active, setActive] = useState(false);
+  const [show, setShow] = useState(false);
+  const ref = useRef(null);
+  useOnClickOutside(ref, () => setShow(false));
 
   return (
-    <ReactDropdown
-      className={className}
-      onToggle={() => setActive(!active)}
-      show={active}
-    >
-      <ReactDropdown.Toggle as={Toggle}>
+    <Wrapper ref={ref}>
+      <Toggle onClick={() => setShow(!show)}>
         {toggle}
-      </ReactDropdown.Toggle>
-      <ReactDropdown.Menu
-        alignRight={alignRight}
-        as={Menu}
-        onClick={() => setActive(false)}
+      </Toggle>
+      <Menu
+        className={className}
+        show={show}
+        onClick={() => closeOnClick && setShow(false)}
       >
         {menu}
-      </ReactDropdown.Menu>
-    </ReactDropdown>
+      </Menu>
+    </Wrapper>
   );
 }
 
 Dropdown.propTypes = {
-  alignRight: PropTypes.bool,
   className: PropTypes.string,
+  closeOnClick: PropTypes.bool,
   menu: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
@@ -108,12 +122,10 @@ Dropdown.propTypes = {
 };
 
 Dropdown.defaultProps = {
-  alignRight: false,
   className: null,
+  closeOnClick: true,
   menu: null,
   toggle: null,
 };
 
-export default style(Dropdown, {
-  height: '100%',
-});
+export default style(Dropdown);

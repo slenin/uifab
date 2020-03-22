@@ -1,25 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router';
+import { useLocation } from 'react-router';
 
 import Box from './Box';
-import Button from './Button';
 import EllipsisText from './EllipsisText';
 import Flex from './Flex';
 import Icon from './Icon';
+import Link from './Link';
 import style from './style';
 
 function NavItem(props) {
   const {
-    className, icon,
+    className, icon, onClick,
     to, text,
   } = props;
   const hasIcon = icon && true;
+  const location = useLocation();
   return (
-    <Button
+    <Link
       className={className}
-      format="link"
+      color={location.pathname === to ? 'primary' : 'inherit'}
       to={to}
+      onClick={onClick}
     >
       <Flex alignItems="center">
         {hasIcon && (
@@ -43,7 +45,7 @@ function NavItem(props) {
           value={text}
         />
       </Flex>
-    </Button>
+    </Link>
   );
 }
 
@@ -54,9 +56,7 @@ NavItem.propTypes = {
     PropTypes.string,
     PropTypes.node,
   ]),
-  location: PropTypes.shape({
-    pathname: PropTypes.string,
-  }).isRequired,
+  onClick: PropTypes.func,
   to: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({}),
@@ -67,16 +67,15 @@ NavItem.propTypes = {
 NavItem.defaultProps = {
   className: null,
   icon: null,
+  onClick: null,
   to: null,
   text: null,
 };
 
 
-export default withRouter(style(NavItem,
-  (props, { css }) => css({
-    color: props.location.pathname === props.to ? 'primary' : 'inherit',
-    width: '100%',
-    '&:hover': {
-      color: 'primary',
-    },
-  })));
+export default style(NavItem, {
+  width: '100%',
+  '&:hover': {
+    color: 'primary',
+  },
+});
