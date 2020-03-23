@@ -36,6 +36,7 @@ import ModalSwitch from './ModalSwitch';
 import NavItem from './NavItem';
 import Navs from './Navs';
 import Page from './Page';
+import Responsive from './Responsive';
 import RichText from './RichText';
 import RichTextInput from './RichTextInput';
 import Section from './Section';
@@ -54,10 +55,10 @@ import style from './style';
 import useApi from './useApi';
 import useModalState from './useModalState';
 import useTheme from './useTheme';
+import useResponsive from './useResponsive';
 import {
   Route, Switch,
   useHistory, useLocation, useParams, useRouteMatch,
-  withRouter,
 } from './router';
 
 export {
@@ -65,9 +66,9 @@ export {
   Divider, DateTimePicker, Dropdown, DropdownTabItem,
   EllipsisText, Error, ExtLink, FabProvider, Field, Flex, Footer, Form, FormError, Header,
   history, HttpClient, Icon, IconButton, Image, Input, Label, Layout, Link, Loading,
-  Modal, ModalSwitch, MenuItem, NavItem, Navs, Page,
+  Modal, ModalSwitch, MenuItem, NavItem, Navs, Page, Responsive,
   RichText, RichTextInput, Route, Select, Section, SortableList, style, Switch,
   TabItem, Tabs, Text, Textarea, ThemeProvider,
   Time, TimePicker, Tooltip, TruncatedText, useApi, useHistory, useLocation,
-  useModalState, useParams, useRouteMatch, useTheme, withRouter,
+  useModalState, useParams, useResponsive, useRouteMatch, useTheme,
 };

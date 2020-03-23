@@ -2,30 +2,15 @@ import { useMediaQuery } from 'react-responsive';
 
 import useTheme from './useTheme';
 
-const NotMobile = ({ children }) => {
+const Responsive = ({ children, bp, not }) => {
   const theme = useTheme();
-  const isNotMobile = useMediaQuery({ minWidth: theme.breakpoints.sm });
-  return isNotMobile ? children : null;
+  const isMinimum = useMediaQuery({ minWidth: theme.breakpoints[bp] });
+
+  if (not) {
+    return isMinimum ? null : children;
+  }
+
+  return isMinimum ? children : null;
 };
 
-const Mobile = ({ children }) => {
-  const theme = useTheme();
-  const isNotMobile = useMediaQuery({ minWidth: theme.breakpoints.sm });
-  return isNotMobile ? null : children;
-};
-
-const useNotMobile = () => {
-  const theme = useTheme();
-  const isNotMobile = useMediaQuery({ minWidth: theme.breakpoints.sm });
-  return isNotMobile;
-};
-
-const useMobile = () => {
-  const theme = useTheme();
-  const isNotMobile = useMediaQuery({ minWidth: theme.breakpoints.sm });
-  return !isNotMobile;
-};
-
-export {
-  Mobile, NotMobile, useMobile, useNotMobile,
-};
+export default Responsive;
