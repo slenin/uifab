@@ -1,3 +1,5 @@
+import 'focus-visible';
+
 const focusStyle = {
   '&:focus': {
     outlineColor: 'primary',

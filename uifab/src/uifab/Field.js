@@ -42,7 +42,7 @@ function Field(props) {
         <Text
           fontSize="0.75em"
           mt={1}
-          value={footer}
+          text={footer}
         />
       )}
 
@@ -51,7 +51,7 @@ function Field(props) {
           color="error-dark"
           fontSize="0.75em"
           mt={1}
-          value={fprops.errors[name]}
+          text={fprops.errors[name]}
         />
       )}
     </Box>

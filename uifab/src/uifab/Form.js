@@ -40,9 +40,9 @@ function Form(props) {
         <form className={className} onSubmit={fprops.handleSubmit}>
           {errorPosition === 'top' && (
             <FormError
-              fontSize={errorFontSize}
               mb={3}
-              message={fprops.status}
+              fontSize={errorFontSize}
+              text={fprops.status}
               onClose={() => fprops.setStatus(null)}
             />
           )}
@@ -51,9 +51,9 @@ function Form(props) {
           </FormContext.Provider>
           {errorPosition === 'middle' && (
             <FormError
-              fontSize={errorFontSize}
               my={3}
-              message={fprops.status}
+              fontSize={errorFontSize}
+              text={fprops.status}
               onClose={() => fprops.setStatus(null)}
             />
           )}
@@ -69,9 +69,9 @@ function Form(props) {
           {action && typeof action === 'function' && action(fprops)}
           {errorPosition === 'bottom' && (
             <FormError
-              fontSize={errorFontSize}
               mt={3}
-              message={fprops.status}
+              fontSize={errorFontSize}
+              text={fprops.status}
               onClose={() => fprops.setStatus(null)}
             />
           )}

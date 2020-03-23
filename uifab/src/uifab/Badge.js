@@ -12,7 +12,7 @@ function Badge(props) {
   return (
     <Text
       className={className}
-      value={text}
+      text={text}
     />
   );
 }

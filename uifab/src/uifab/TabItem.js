@@ -11,7 +11,7 @@ import style from './style';
 
 function TabItem(props) {
   const {
-    active, activeIcon, badge, className, icon,
+    active, activeIcon, badge, className, disabled, icon,
     onClick, to, text,
   } = props;
   const location = useLocation();
@@ -19,13 +19,15 @@ function TabItem(props) {
   const hasIcon = icon && true;
   return (
     <Button
+      className={className}
+      format="link"
       borderBottomColor={isActive ? 'primary' : 'transparent'}
       color={isActive ? 'primary' : 'inherit'}
       flexDirection="column"
-      className={className}
-      format="link"
+      justifyContent="center"
       onClick={onClick}
       to={to}
+      disabled={disabled}
     >
       {hasIcon && (
         <Box
@@ -58,7 +60,7 @@ function TabItem(props) {
         <Text
           fontSize={hasIcon ? '0.75em' : 'inherit'}
           fontWeight={hasIcon ? 'normal' : 'bold'}
-          value={text}
+          text={text}
         />
       )}
     </Button>
@@ -67,13 +69,14 @@ function TabItem(props) {
 
 TabItem.propTypes = {
   active: PropTypes.bool,
-  badge: PropTypes.string,
-  className: PropTypes.string,
   activeIcon: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.string),
     PropTypes.string,
     PropTypes.node,
   ]),
+  badge: PropTypes.string,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
   icon: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.string),
     PropTypes.string,
@@ -92,6 +95,7 @@ TabItem.defaultProps = {
   activeIcon: null,
   badge: null,
   className: null,
+  disabled: false,
   icon: null,
   onClick: null,
   to: null,

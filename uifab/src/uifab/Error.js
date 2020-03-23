@@ -6,11 +6,11 @@ import style from './style';
 
 function Error(props) {
   const {
-    className, children, error,
+    className, children, text,
   } = props;
   return (
     <Text className={className}>
-      {error && error}
+      {text && text}
       {children && children}
     </Text>
   );
@@ -22,13 +22,13 @@ Error.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
-  error: PropTypes.string,
+  text: PropTypes.string,
 };
 
 Error.defaultProps = {
   className: null,
   children: null,
-  error: null,
+  text: null,
 };
 
 export default style(Error, {

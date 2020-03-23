@@ -3,25 +3,27 @@ import PropTypes from 'prop-types';
 import { useLocation } from 'react-router';
 
 import Box from './Box';
+import Button from './Button';
 import EllipsisText from './EllipsisText';
 import Flex from './Flex';
 import Icon from './Icon';
-import Link from './Link';
 import style from './style';
 
 function NavItem(props) {
   const {
-    className, icon, onClick,
+    className, disabled, icon, onClick,
     to, text,
   } = props;
   const hasIcon = icon && true;
   const location = useLocation();
   return (
-    <Link
+    <Button
       className={className}
+      format="link"
       color={location.pathname === to ? 'primary' : 'inherit'}
       to={to}
       onClick={onClick}
+      disabled={disabled}
     >
       <Flex alignItems="center">
         {hasIcon && (
@@ -42,15 +44,16 @@ function NavItem(props) {
         )}
         <EllipsisText
           textAlign="left"
-          value={text}
+          text={text}
         />
       </Flex>
-    </Link>
+    </Button>
   );
 }
 
 NavItem.propTypes = {
   className: PropTypes.string,
+  disabled: PropTypes.bool,
   icon: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.string),
     PropTypes.string,
@@ -66,6 +69,7 @@ NavItem.propTypes = {
 
 NavItem.defaultProps = {
   className: null,
+  disabled: false,
   icon: null,
   onClick: null,
   to: null,

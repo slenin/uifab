@@ -18,7 +18,7 @@ function Navs(props) {
         <EllipsisText
           color="muted"
           fontWeight="bold"
-          mb={1}
+          mb={2}
           value={title}
         />
       )}
@@ -30,7 +30,7 @@ function Navs(props) {
         return (
           <Box
             key={child.props.text || index}
-            mb={1}
+            mb={2}
           >
             {child}
           </Box>

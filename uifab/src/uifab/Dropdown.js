@@ -4,6 +4,7 @@ import useOnClickOutside from 'use-onclickoutside';
 
 import Box from './Box';
 import style from './style';
+import useKeyPress from './useKeyPress';
 
 const Wrapper = style(Box, {
   height: '100%',
@@ -16,7 +17,9 @@ const Toggle = React.forwardRef((props, ref) => (
     ref={ref}
     onClick={(e) => {
       e.preventDefault();
-      props.onClick(e);
+      if (props.onClick) {
+        props.onClick(e);
+      }
     }}
   >
     {props.children}
@@ -46,7 +49,7 @@ const Menu = React.forwardRef((props, ref) => (
     borderStyle="solid"
     borderWidth={1}
     boxShadow="0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.2)"
-    display={props.show ? 'block' : 'none'}
+    display={props.open ? 'block' : 'none'}
     fontSize="inherit"
     minWidth="auto"
     overflow="hidden"
@@ -58,7 +61,9 @@ const Menu = React.forwardRef((props, ref) => (
         e.preventDefault();
       }
 
-      props.onClick(e);
+      if (props.onClick) {
+        props.onClick(e);
+      }
     }}
   >
     {props.children}
@@ -73,7 +78,7 @@ Menu.propTypes = {
   className: PropTypes.string,
   closeOnClick: PropTypes.bool,
   onClick: PropTypes.func,
-  show: PropTypes.bool,
+  open: PropTypes.bool,
 };
 
 Menu.defaultProps = {
@@ -81,26 +86,33 @@ Menu.defaultProps = {
   className: null,
   closeOnClick: false,
   onClick: null,
-  show: false,
+  open: false,
 };
 
 function Dropdown(props) {
   const {
     className, closeOnClick, menu, toggle,
   } = props;
-  const [show, setShow] = useState(false);
+  const [open, setOpen] = useState(false);
   const ref = useRef(null);
-  useOnClickOutside(ref, () => setShow(false));
+  useOnClickOutside(ref, () => setOpen(false));
+
+  const escapePressed = useKeyPress('Escape');
+  if (escapePressed && open) {
+    setOpen(false);
+  }
 
   return (
-    <Wrapper ref={ref}>
-      <Toggle onClick={() => setShow(!show)}>
+    <Wrapper
+      ref={ref}
+    >
+      <Toggle onClick={() => setOpen(!open)}>
         {toggle}
       </Toggle>
       <Menu
         className={className}
-        show={show}
-        onClick={() => closeOnClick && setShow(false)}
+        open={open}
+        onClick={() => closeOnClick && setOpen(false)}
       >
         {menu}
       </Menu>

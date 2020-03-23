@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {
+  Box,
   Button,
   Content,
   Dropdown,
@@ -9,11 +10,13 @@ import {
   Flex,
   Footer,
   Header,
+  Image,
   Layout,
   Link,
   Modal,
   MenuItem,
   NavItem,
+  Navs,
   TabItem,
   Tabs,
   Text,
@@ -34,7 +37,7 @@ function App() {
             <Text
               fontSize="large"
               fontWeight="bold"
-              value="Product name"
+              text="Product name"
             />
           </Link>
         )}
@@ -44,7 +47,6 @@ function App() {
               to="/"
               text="Option 1"
               onClick={() => {
-                console.log('Option 1');
               }}
             />
             <NavItem to="/abc" ml={14} text="Option 2" />
@@ -53,12 +55,21 @@ function App() {
       />
       <Content pt="4rem">
         {Time.ago(Time.now() - 20)}
-        <ExtLink href="http://www.google.com" target="_blank">
-          Hello
-        </ExtLink>
+        <ExtLink
+          to="http://www.google.com"
+          target="_blank"
+          text="Hello"
+        />
+        <Link to="/world" target="_blank" text="World" />
 
         <Button
           text="Click"
+        />
+
+        <Button
+          format="link"
+          text="Link"
+          to="/link"
         />
 
         <Dropdown
@@ -89,6 +100,7 @@ function App() {
             text="Activities"
             to="/me"
             icon="exclamation-circle"
+            disabled
           />
           <TabItem
             text="Teams"
@@ -115,11 +127,48 @@ function App() {
             alignRight
           />
         </Tabs>
+        <Tabs height={48}>
+          <TabItem
+            text="Home"
+            to="/"
+          />
+          <TabItem
+            text="Activities"
+            to="/me"
+          />
+          <TabItem
+            text="Teams"
+            to="/you"
+          />
+          <TabItem
+            text="Alerts"
+            to="/her"
+          />
+        </Tabs>
+
+        <Box width={120}>
+          <Navs title="TEAM ACTIVITIES">
+            <NavItem
+              icon="exclamation-circle"
+              text="Home"
+              to="/"
+            />
+            <NavItem
+              icon="spinner"
+              text="Lenin Ravindranath"
+            />
+            <NavItem
+              icon={(<Image src="https://ui-avatars.com/api/?background=ffd022&color=000&name=Lenin" />)}
+              text="Lenin"
+            />
+          </Navs>
+        </Box>
+
         {showModal && (
           <Modal title="Test modal">
-            <Text value="Modal content" />
-            <Text value="Modal content" />
-            <Text value="Modal content" />
+            <Text text="Modal content" />
+            <Text text="Modal content" />
+            <Text text="Modal content" />
           </Modal>
         )}
       </Content>

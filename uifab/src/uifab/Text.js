@@ -5,12 +5,12 @@ import style from './style';
 
 function Text(props) {
   const {
-    children, className, value,
+    children, className, text,
   } = props;
 
   return (
     <div className={className}>
-      {value && value}
+      {text && text}
       {children && children}
     </div>
   );
@@ -22,13 +22,13 @@ Text.propTypes = {
     PropTypes.node,
   ]),
   className: PropTypes.string,
-  value: PropTypes.string,
+  text: PropTypes.string,
 };
 
 Text.defaultProps = {
   children: null,
   className: null,
-  value: null,
+  text: null,
 };
 
 export default style(Text);

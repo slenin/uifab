@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import 'focus-visible';
 
 import Box from './Box';
 import focusStyle from './focusStyle';
@@ -20,9 +19,8 @@ function Button(props) {
     </>
   );
 
-  let element = null;
   if (as === 'button' && !to) {
-    element = (
+    return (
       /* eslint-disable react/button-has-type */
       <button
         className={className}
@@ -35,11 +33,12 @@ function Button(props) {
       </button>
       /* eslint-enable react/button-has-type */
     );
-  } else if (as === 'div' || to) {
-    element = (
+  }
+
+  if (as === 'div' && !to) {
+    return (
       <Box
         className={className}
-        disabled={disabled || loading}
         onClick={(e) => onClick && onClick(e)}
       >
         {loading && <Icon icon="spinner" spin />}
@@ -51,15 +50,19 @@ function Button(props) {
   if (to) {
     return (
       <Link
+        className={className}
+        onClick={(e) => onClick && onClick(e)}
         to={to}
         target={target}
+        style={{ pointerEvents: disabled || loading ? 'none' : 'auto' }}
       >
-        {element}
+        {loading && <Icon icon="spinner" spin />}
+        {!loading && content}
       </Link>
     );
   }
 
-  return element;
+  return null;
 }
 
 Button.propTypes = {
@@ -156,6 +159,7 @@ const StyledButton = style(Button,
         bg: 'transparent',
         border: 0,
         color: props.variant,
+        justifyContent: 'flex-start',
         p: 0,
       },
       custom: {

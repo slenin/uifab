@@ -9,9 +9,9 @@ import style from './style';
 
 function FormError(props) {
   const {
-    className, message, onClose,
+    className, children, onClose, text,
   } = props;
-  return message && (
+  return (children || text) && (
     <Flex
       className={className}
       alignItems="center"
@@ -21,7 +21,8 @@ function FormError(props) {
         icon="exclamation-circle"
       />
       <Box flexGrow={1}>
-        {message}
+        {text && text}
+        {children && children}
       </Box>
       <IconButton
         ml={2}
@@ -34,17 +35,19 @@ function FormError(props) {
 
 FormError.propTypes = {
   className: PropTypes.string,
-  message: PropTypes.oneOfType([
-    PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
   onClose: PropTypes.func,
+  text: PropTypes.string,
 };
 
 FormError.defaultProps = {
   className: null,
-  message: null,
+  children: null,
   onClose: null,
+  text: null,
 };
 
 export default style(FormError, {

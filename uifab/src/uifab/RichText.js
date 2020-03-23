@@ -10,7 +10,7 @@ import 'react-quill/dist/quill.snow.css';
 function RichText(props) {
   const {
     className,
-    value,
+    text,
   } = props;
 
   const ref = useRef(null);
@@ -38,19 +38,19 @@ function RichText(props) {
       readOnly
       modules={{ toolbar: false }}
       preserveWhitespace
-      value={value}
+      value={text}
     />
   );
 }
 
 RichText.propTypes = {
   className: PropTypes.string,
-  value: PropTypes.string,
+  text: PropTypes.string,
 };
 
 RichText.defaultProps = {
   className: null,
-  value: null,
+  text: null,
 };
 
 export default style(RichText);
