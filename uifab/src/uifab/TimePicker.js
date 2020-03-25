@@ -1,45 +1,42 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
 import ReactDatePicker from 'react-datepicker';
 
+import Box from './Box';
 import inputStyle from './inputStyle';
 import style from './style';
 
 import 'react-datepicker/dist/react-datepicker.css';
+
+const Wrapper = style(Box, {
+  '.react-datepicker-wrapper': {
+    display: 'block',
+  },
+});
 
 function TimePicker(props) {
   const {
     className, name, onChange, value,
   } = props;
   const [valueState, setValue] = useState(value);
-  const ref = useRef(null);
-  useEffect(() => {
-    /* eslint-disable react/no-find-dom-node */
-    const element = ReactDOM.findDOMNode(ref.current);
-    /* eslint-enable react/no-find-dom-node */
-
-    if (element) {
-      element.style.display = 'block';
-    }
-  }, []);
 
   return (
-    <ReactDatePicker
-      ref={ref}
-      showTimeSelect
-      showTimeSelectOnly
-      dateFormat="h:mm aa"
-      className={className}
-      name={name}
-      selected={valueState}
-      onChange={(date) => {
-        setValue(date);
-        if (onChange) {
-          onChange({ target: { name, value: date } });
-        }
-      }}
-    />
+    <Wrapper>
+      <ReactDatePicker
+        showTimeSelect
+        showTimeSelectOnly
+        dateFormat="h:mm aa"
+        className={className}
+        name={name}
+        selected={valueState}
+        onChange={(date) => {
+          setValue(date);
+          if (onChange) {
+            onChange({ target: { name, value: date } });
+          }
+        }}
+      />
+    </Wrapper>
   );
 }
 

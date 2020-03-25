@@ -32,7 +32,7 @@ function Page(props) {
             {error}
           </Error>
         )}
-        {children}
+        {!error && children}
       </Loading>
     </Box>
   );

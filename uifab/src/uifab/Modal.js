@@ -49,13 +49,15 @@ function Modal(props) {
             {error}
           </Error>
         )}
-        <Box
-          px={removePadding ? 0 : 6}
-          pt={removePadding ? 0 : 3}
-          pb={removePadding ? 0 : 6}
-        >
-          {children}
-        </Box>
+        {!error && (
+          <Box
+            px={removePadding ? 0 : 6}
+            pt={removePadding ? 0 : 3}
+            pb={removePadding ? 0 : 6}
+          >
+            {children}
+          </Box>
+        )}
       </Loading>
     </ReactModal>
   );

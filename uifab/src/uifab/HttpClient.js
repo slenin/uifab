@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import Response from './Response';
+import ResponseError from './ResponseError';
 
 class HttpClient {
   constructor(
@@ -27,7 +27,7 @@ class HttpClient {
       const result = await this.axios.get(url, data);
       response.data = result.data;
     } catch (error) {
-      response.setError(error, this.responseErrors);
+      response.error = this.parseError(error, this.responseErrors);
     }
 
     return response;
@@ -42,7 +42,7 @@ class HttpClient {
         response.location = result.headers.location;
       }
     } catch (error) {
-      response.setError(error, this.responseErrors);
+      response.error = this.parseError(error, this.responseErrors);
     }
 
     return response;
@@ -54,7 +54,7 @@ class HttpClient {
       const result = await this.axios.patch(url, data);
       response.data = result.data;
     } catch (error) {
-      response.setError(error, this.responseErrors);
+      response.error = this.parseError(error, this.responseErrors);
     }
 
     return response;
@@ -66,7 +66,7 @@ class HttpClient {
       const result = await this.axios.put(url, data);
       response.data = result.data;
     } catch (error) {
-      response.setError(error, this.responseErrors);
+      response.error = this.parseError(error, this.responseErrors);
     }
 
     return response;
@@ -78,10 +78,16 @@ class HttpClient {
       const result = await this.axios.delete(url, data);
       response.data = result.data;
     } catch (error) {
-      response.setError(error, this.responseErrors);
+      response.error = this.parseError(error, this.responseErrors);
     }
 
     return response;
+  }
+
+  parseError = (error, responseErrors) => {
+    const e = new ResponseError(error.response.status, error.response.data);
+    e.map(responseErrors);
+    return e;
   }
 }
 

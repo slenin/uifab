@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
 import ReactQuill from 'react-quill';
 
 import style from './style';
@@ -13,28 +12,9 @@ function RichText(props) {
     text,
   } = props;
 
-  const ref = useRef(null);
-  useEffect(() => {
-    /* eslint-disable react/no-find-dom-node */
-    const element = ReactDOM.findDOMNode(ref.current);
-    /* eslint-enable react/no-find-dom-node */
-
-    if (element) {
-      const containerElement = element.getElementsByClassName('ql-container')[0];
-      const editorElement = element.getElementsByClassName('ql-editor')[0];
-      const containerSnowElement = element.getElementsByClassName('ql-container ql-snow')[0];
-      containerElement.style.color = 'inherit';
-      containerElement.style.fontFamily = 'inherit';
-      containerElement.style.fontSize = 'inherit';
-      editorElement.style.padding = '0';
-      containerSnowElement.style.borderStyle = 'none';
-    }
-  }, []);
-
   return (
     <ReactQuill
       className={className}
-      ref={ref}
       readOnly
       modules={{ toolbar: false }}
       preserveWhitespace
@@ -53,4 +33,16 @@ RichText.defaultProps = {
   text: null,
 };
 
-export default style(RichText);
+export default style(RichText, {
+  '.ql-container': {
+    color: 'inherit',
+    fontFamily: 'inherit',
+    fontSize: 'inherit',
+  },
+  '.ql-editor': {
+    padding: 0,
+  },
+  '.ql-container.ql-snow': {
+    borderStyle: 'none',
+  },
+});
