@@ -15,17 +15,17 @@
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult> Get(int error)
         {
-            await Task.Delay(3000);
+            await Task.Delay(500);
             if (error == 404)
             {
                 return this.NotFound();
             }
 
             return this.Ok(new[] {
-                new { Name = "Lenin", Age = 35},
-                new { Name = "Thangam", Age = 35},
-                new { Name = "Kana", Age = 4},
-                new { Name = "Thiran", Age = 0},
+                new { Name = "Lenin", Age = 35, Status = "Married" },
+                new { Name = "Thangam", Age = 35, Status = "Married" },
+                new { Name = "Kana", Age = 4, Status = "Single" },
+                new { Name = "Thiran", Age = 0, Status = "Single" },
             });
         }
     }

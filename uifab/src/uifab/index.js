@@ -43,6 +43,7 @@ import Section from './Section';
 import Select from './Select';
 import SortableList from './SortableList';
 import TabItem from './TabItem';
+import Table from './Table';
 import Tabs from './Tabs';
 import Text from './Text';
 import Textarea from './Textarea';
@@ -70,7 +71,7 @@ export {
   history, HttpClient, Icon, IconButton, Image, Input, Label, Layout, Link, Loading,
   Modal, ModalSwitch, MenuItem, NavItem, Navs, Page, Responsive,
   RichText, RichTextInput, Route, Select, Section, SortableList, style, Switch,
-  TabItem, Tabs, Text, Textarea, ThemeProvider,
+  TabItem, Table, Tabs, Text, Textarea, ThemeProvider,
   Time, TimePicker, Tooltip, TruncatedText, useApi, useHistory, useLocation,
   useModalState, useParams, useResponsive, useRouteMatch, useTheme,
 };

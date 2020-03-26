@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import {
   Box,
@@ -8,12 +9,14 @@ import {
   DateTimePicker,
   Dropdown,
   DropdownTabItem,
+  EllipsisText,
   ExtLink,
   Flex,
   Footer,
   Header,
   HttpClient,
   Image,
+  Input,
   Layout,
   Link,
   Modal,
@@ -25,6 +28,7 @@ import {
   Section,
   Select,
   TabItem,
+  Table,
   Tabs,
   Text,
   Time,
@@ -35,6 +39,63 @@ import {
 
 const http = new HttpClient(`${window.location.origin}`, 'json', null);
 
+const Th = ({ title }) => (
+  <Box p={3} textAlign="left">
+    {title}
+  </Box>
+);
+
+Th.propTypes = {
+  title: PropTypes.string.isRequired,
+};
+
+const Name = ({ cell }) => (
+  <EllipsisText
+    p={3}
+    text={cell.value}
+  />
+);
+
+Name.propTypes = {
+  cell: PropTypes.shape({
+    value: PropTypes.string,
+  }).isRequired,
+};
+
+const Age = ({ cell }) => (
+  <Text
+    p={3}
+    text={cell.value}
+  />
+);
+
+Age.propTypes = {
+  cell: PropTypes.shape({
+    value: PropTypes.string,
+  }).isRequired,
+};
+
+const Status = ({ row, cell }) => (
+  <Button
+    format="link"
+    p={3}
+    to={`/${row.values.name}`}
+  >
+    {cell.value}
+  </Button>
+);
+
+Status.propTypes = {
+  cell: PropTypes.shape({
+    value: PropTypes.string,
+  }).isRequired,
+  row: PropTypes.shape({
+    values: PropTypes.shape({
+      name: PropTypes.string,
+    }),
+  }).isRequired,
+};
+
 function App() {
   const modalState = useModalState();
   const { showModal } = modalState.get();
@@ -43,6 +104,7 @@ function App() {
   } = useApi(async (option) => http.get(`/sample/${option}`), 0);
 
   const [richTextValue, setRichTextValue] = useState(null);
+  const [filter, setFilter] = useState('');
   return (
     <Layout>
       <Header
@@ -71,7 +133,7 @@ function App() {
       />
       <Content pt="4rem">
         <RichTextInput
-          borderStyle="none"
+          borderStyle="solid"
           minLines={5}
           onChange={(e) => setRichTextValue(e.target.value)}
         />
@@ -100,7 +162,45 @@ function App() {
         />
 
         <Section loading={isLoading} error={error && error.map({ notFound: 'Not found' })}>
-          {data && data[0].name}
+          {data && (
+            <>
+              <Input onChange={(e) => setFilter(e.target.value)} />
+              <Table
+                borderRadius={4}
+                columns={[
+                  {
+                    Header: <Th title="Name" />,
+                    accessor: 'name',
+                    width: '15%',
+                    Cell: Name,
+                  },
+                  {
+                    Header: <Th title="Age" />,
+                    accessor: 'age',
+                    width: 'auto',
+                    Cell: Age,
+                  },
+                  {
+                    Header: <Th title="Status" />,
+                    accessor: 'status',
+                    Cell: Status,
+                    width: '20%',
+                    disableSortBy: true,
+                  },
+                ]}
+                data={data}
+                globalFilter={filter}
+                noData={(
+                  <Text
+                    p={3}
+                    color="error"
+                    textAlign="center"
+                    text="No members found"
+                  />
+                )}
+              />
+            </>
+          )}
           {Time.ago(Time.now() - 20)}
           <ExtLink
             to="http://www.google.com"
