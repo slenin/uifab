@@ -19,7 +19,7 @@ function Navs(props) {
           color="muted"
           fontWeight="bold"
           mb={2}
-          value={title}
+          text={title}
         />
       )}
       {children.map((child, index) => {

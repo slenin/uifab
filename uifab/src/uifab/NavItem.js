@@ -78,7 +78,7 @@ NavItem.defaultProps = {
 
 
 export default stylex(NavItem, {
-  width: '100%',
+  maxWidth: '100%',
   '&:hover': {
     color: 'primary',
   },

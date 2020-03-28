@@ -7,8 +7,9 @@ import stylex from './stylex';
 
 function Menu(props) {
   const {
-    children, className, closeOnClick,
-    container, onClick, style,
+    children, className, closeStyle,
+    container, onClick, open, openStyle,
+    preventDefaultOnClick, style,
   } = props;
 
   let content = children;
@@ -20,12 +21,27 @@ function Menu(props) {
     );
   }
 
+  let menuStyle = {};
+  if (!open) {
+    menuStyle = {
+      ...style,
+      ...closeStyle,
+    };
+  }
+
+  if (open) {
+    menuStyle = {
+      ...style,
+      ...openStyle,
+    };
+  }
+
   return (
     <Box
       className={className}
-      style={style}
+      style={menuStyle}
       onClick={(e) => {
-        if (!closeOnClick) {
+        if (preventDefaultOnClick) {
           e.preventDefault();
         }
 
@@ -45,18 +61,24 @@ Menu.propTypes = {
     PropTypes.node,
   ]),
   className: PropTypes.string,
-  closeOnClick: PropTypes.bool,
+  closeStyle: PropTypes.shape({}),
   container: PropTypes.bool,
   onClick: PropTypes.func,
+  open: PropTypes.bool,
+  openStyle: PropTypes.shape({}),
+  preventDefaultOnClick: PropTypes.bool,
   style: PropTypes.shape({}),
 };
 
 Menu.defaultProps = {
   children: null,
   className: null,
-  closeOnClick: false,
+  closeStyle: null,
   container: false,
   onClick: null,
+  open: false,
+  openStyle: null,
+  preventDefaultOnClick: true,
   style: null,
 };
 

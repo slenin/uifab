@@ -8,7 +8,7 @@ import stylex from './stylex';
 function Header(props) {
   const {
     className, children, container,
-    left, menu, right,
+    left, right,
   } = props;
 
   let content = null;
@@ -53,10 +53,6 @@ Header.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
-  menu: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
   right: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
@@ -68,7 +64,6 @@ Header.defaultProps = {
   children: null,
   container: true,
   left: null,
-  menu: null,
   right: null,
 };
 

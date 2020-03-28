@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import {
   Box,
   Button,
-  Container,
   Content,
   DatePicker,
   DateTimePicker,
@@ -15,7 +14,6 @@ import {
   Flex,
   Footer,
   Hamburger,
-  HamburgerMenu,
   Header,
   HttpClient,
   Image,
@@ -37,6 +35,7 @@ import {
   Text,
   Time,
   TimePicker,
+  ToggleMenu,
   useApi,
   useModalState,
 } from 'uifab';
@@ -132,50 +131,50 @@ function App() {
               onClick={() => {
               }}
             />
-            <NavItem display={['none', 'block']} to="/abc" ml={14} text="Option 2" />
-            <HamburgerMenu
+            <NavItem to="/abc" ml={4} text="Option 2" />
+            <NavItem to="/xyz" ml={4} text="Option 3" />
+            <ToggleMenu
               ml={4}
-              openStyle={{ width: '500px' }}
-              closeStyle={{ width: 0 }}
-            >
-              <Menu
-                right={0}
-                height="100vh"
-                position="fixed"
-                top="3rem"
-              >
-                <MenuItem
-                  textAlign="center"
-                  text="Hello"
-                  onClick={() => {
-                    modalState.push({ showModal: true });
-                  }}
-                />
+              toggle={<Hamburger />}
+              closeOnOutsideClick
+              menu={(
+                <Menu
+                  right={0}
+                  height="100vh"
+                  position="fixed"
+                  top="3rem"
+                  openStyle={{ width: '500px' }}
+                  closeStyle={{ visibility: 'hidden', width: 0 }}
+                  style={{ transition: '0.4s' }}
+                >
+                  <MenuItem
+                    textAlign="center"
+                    text="Hello"
+                    onClick={() => {
+                      modalState.push({ showModal: true });
+                    }}
+                  />
 
-                <MenuItem
-                  textAlign="center"
-                  text="Hello"
-                  to="/len"
-                />
-              </Menu>
-            </HamburgerMenu>
+                  <MenuItem
+                    textAlign="center"
+                    text="Hello"
+                    to="/len"
+                  />
+                </Menu>
+              )}
+            />
           </Flex>
         )}
       />
 
       <Content pt="3rem">
         <Dropdown
-          left={0}
-          right={0}
-          minHeight="100vh"
-          position="fixed"
-          top="3rem"
           toggle={(
             <Button
               text="Hello"
             />
           )}
-          menu={(
+          menuContent={(
             <>
               <MenuItem
                 textAlign="center"
@@ -193,6 +192,7 @@ function App() {
         />
         <RichTextInput
           borderStyle="solid"
+          borderWidth={1}
           minLines={5}
           onChange={(e) => setRichTextValue(e.target.value)}
         />
@@ -305,7 +305,7 @@ function App() {
               text="Me"
               to="/her"
               icon="exclamation-circle"
-              menu={(
+              menuContent={(
                 <>
                   <MenuItem divider text="Click here" />
                   <MenuItem text="Click now" />
@@ -337,7 +337,7 @@ function App() {
             <Navs title="TEAM ACTIVITIES">
               <NavItem
                 icon="exclamation-circle"
-                text="Home"
+                text="Home Home Home Home"
                 to="/"
               />
               <NavItem

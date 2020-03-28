@@ -1,88 +1,56 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import useOnClickOutside from 'use-onclickoutside';
 
-import Box from './Box';
 import Menu from './Menu';
+import ToggleMenu from './ToggleMenu';
 import stylex from './stylex';
-import useKeyPress from './useKeyPress';
-
-const Wrapper = stylex(Box, {
-  height: '100%',
-  position: 'relative',
-});
-
-const Toggle = React.forwardRef((props, ref) => (
-  <Box
-    height="100%"
-    ref={ref}
-    onClick={(e) => {
-      e.preventDefault();
-      if (props.onClick) {
-        props.onClick(e);
-      }
-    }}
-  >
-    {props.children}
-  </Box>
-));
-
-Toggle.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
-  onClick: PropTypes.func,
-};
-
-Toggle.defaultProps = {
-  children: null,
-  onClick: null,
-};
 
 function Dropdown(props) {
   const {
-    className, closeOnClick, menu, toggle,
+    alignRight, className, closeOnClick, closeOnOutsideClick,
+    menu, menuContent, toggle,
   } = props;
-  const [open, setOpen] = useState(false);
-  const ref = useRef(null);
-  useOnClickOutside(ref, () => setOpen(false));
 
-  const escapePressed = useKeyPress('Escape');
-  if (escapePressed && open) {
-    setOpen(false);
+  let toggleMenu = menu;
+  if (!menu) {
+    toggleMenu = (
+      <Menu
+        right={alignRight ? 0 : 'auto'}
+        borderColor="border"
+        borderRadius={4}
+        borderStyle="solid"
+        borderWidth={1}
+        boxShadow="0 1px 2px 0 rgba(0, 0, 0, 0.2)"
+        top="100%"
+        closeStyle={{ display: 'none' }}
+      >
+        {menuContent}
+      </Menu>
+    );
   }
 
   return (
-    <Wrapper
-      ref={ref}
-    >
-      <Toggle onClick={() => setOpen(!open)}>
-        {toggle}
-      </Toggle>
-      {open && (
-        <Menu
-          className={className}
-          borderColor="border"
-          borderRadius={4}
-          borderStyle="solid"
-          borderWidth={1}
-          boxShadow="0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.2)"
-          top="100%"
-          closeOnClick={closeOnClick}
-          onClick={() => closeOnClick && setOpen(false)}
-        >
-          {menu}
-        </Menu>
-      )}
-    </Wrapper>
+    <ToggleMenu
+      className={className}
+      position="relative"
+      toggle={toggle}
+      menu={toggleMenu}
+      closeOnClick={closeOnClick}
+      closeOnOutsideClick={closeOnOutsideClick}
+    />
   );
 }
 
 Dropdown.propTypes = {
+  alignRight: PropTypes.bool,
   className: PropTypes.string,
   closeOnClick: PropTypes.bool,
+  closeOnOutsideClick: PropTypes.bool,
   menu: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
+  menuContent: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
@@ -93,9 +61,12 @@ Dropdown.propTypes = {
 };
 
 Dropdown.defaultProps = {
+  alignRight: false,
   className: null,
   closeOnClick: true,
+  closeOnOutsideClick: true,
   menu: null,
+  menuContent: null,
   toggle: null,
 };
 

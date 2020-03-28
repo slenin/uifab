@@ -20,7 +20,6 @@ import Footer from './Footer';
 import Form from './Form';
 import FormError from './FormError';
 import Hamburger from './Hamburger';
-import HamburgerMenu from './HamburgerMenu';
 import Header from './Header';
 import history from './history';
 import HttpClient from './HttpClient';
@@ -53,6 +52,7 @@ import Textarea from './Textarea';
 import ThemeProvider from './ThemeProvider';
 import Time from './Time';
 import TimePicker from './TimePicker';
+import ToggleMenu from './ToggleMenu';
 import Tooltip from './Tooltip';
 import TruncatedText from './TruncatedText';
 import stylex from './stylex';
@@ -71,11 +71,11 @@ export {
   Badge, Box, Button, Card, CodeInput, Container, Content, DatePicker,
   Divider, DateTimePicker, Dropdown, DropdownTabItem,
   EllipsisText, Error, ExtLink, FabProvider, Field, Flex, Footer, Form, FormError,
-  Hamburger, HamburgerMenu, Header,
+  Hamburger, Header,
   history, HttpClient, Icon, IconButton, Image, Input, Label, Layout, Link, Loading,
   Modal, ModalSwitch, Menu, MenuItem, NavItem, Navs, Page, Responsive,
   RichText, RichTextInput, Route, Select, Section, SortableList, stylex, Switch,
   TabItem, Table, Tabs, Text, Textarea, ThemeProvider,
-  Time, TimePicker, Tooltip, TruncatedText, useApi, useHistory, useLocation,
+  Time, TimePicker, ToggleMenu, Tooltip, TruncatedText, useApi, useHistory, useLocation,
   useModalState, useParams, useResponsive, useRouteMatch, useTheme,
 };

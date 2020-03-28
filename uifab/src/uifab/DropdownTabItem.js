@@ -7,12 +7,13 @@ import stylex from './stylex';
 
 function DropdownTabItem(props) {
   const {
-    alignRight, className, icon, menu,
+    alignRight, className, icon, menu, menuContent,
     onClick, text,
   } = props;
   return (
     <Dropdown
-      right={alignRight ? 0 : 'auto'}
+      height="100%"
+      width="100%"
       toggle={(
         <TabItem
           className={className}
@@ -22,6 +23,8 @@ function DropdownTabItem(props) {
         />
       )}
       menu={menu}
+      menuContent={menuContent}
+      alignRight={alignRight}
     />
   );
 }
@@ -37,6 +40,10 @@ DropdownTabItem.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
+  menuContent: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
   onClick: PropTypes.func,
   text: PropTypes.string,
 };
@@ -46,6 +53,7 @@ DropdownTabItem.defaultProps = {
   className: null,
   icon: null,
   menu: null,
+  menuContent: null,
   onClick: null,
   text: null,
 };
