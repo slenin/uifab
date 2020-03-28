@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Truncate from 'react-truncate';
 
 import Button from './Button';
-import style from './style';
+import stylex from './stylex';
 
 const STRINGS = {
   more: 'See more',
@@ -27,7 +27,7 @@ function TruncatedText(props) {
           <span>
             {'... '}
             <Button
-              format="link"
+              format="inline"
               text={moreText}
               onClick={(e) => {
                 setExpanded(!expanded);
@@ -49,7 +49,7 @@ function TruncatedText(props) {
         <span>
           {' '}
           <Button
-            format="link"
+            format="inline"
             text={lessText}
             onClick={(e) => {
               setExpanded(!expanded);
@@ -78,4 +78,4 @@ TruncatedText.defaultProps = {
   text: null,
 };
 
-export default style(TruncatedText);
+export default stylex(TruncatedText);

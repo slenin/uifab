@@ -5,7 +5,7 @@ import Box from './Box';
 import DatePicker from './DatePicker';
 import Flex from './Flex';
 import TimePicker from './TimePicker';
-import style from './style';
+import stylex from './stylex';
 
 function DateTimePicker(props) {
   const {
@@ -56,4 +56,4 @@ DateTimePicker.defaultProps = {
   value: new Date(),
 };
 
-export default style(DateTimePicker);
+export default stylex(DateTimePicker);

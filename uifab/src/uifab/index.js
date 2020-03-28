@@ -19,8 +19,10 @@ import Flex from './Flex';
 import Footer from './Footer';
 import Form from './Form';
 import FormError from './FormError';
-import history from './history';
+import Hamburger from './Hamburger';
+import HamburgerMenu from './HamburgerMenu';
 import Header from './Header';
+import history from './history';
 import HttpClient from './HttpClient';
 import Icon from './Icon';
 import IconButton from './IconButton';
@@ -30,6 +32,7 @@ import Label from './Label';
 import Link from './Link';
 import Layout from './Layout';
 import Loading from './Loading';
+import Menu from './Menu';
 import MenuItem from './MenuItem';
 import Modal from './Modal';
 import ModalSwitch from './ModalSwitch';
@@ -52,7 +55,7 @@ import Time from './Time';
 import TimePicker from './TimePicker';
 import Tooltip from './Tooltip';
 import TruncatedText from './TruncatedText';
-import style from './style';
+import stylex from './stylex';
 import useApi from './useApi';
 import useModalState from './useModalState';
 import useTheme from './useTheme';
@@ -67,10 +70,11 @@ import './uifab.css';
 export {
   Badge, Box, Button, Card, CodeInput, Container, Content, DatePicker,
   Divider, DateTimePicker, Dropdown, DropdownTabItem,
-  EllipsisText, Error, ExtLink, FabProvider, Field, Flex, Footer, Form, FormError, Header,
+  EllipsisText, Error, ExtLink, FabProvider, Field, Flex, Footer, Form, FormError,
+  Hamburger, HamburgerMenu, Header,
   history, HttpClient, Icon, IconButton, Image, Input, Label, Layout, Link, Loading,
-  Modal, ModalSwitch, MenuItem, NavItem, Navs, Page, Responsive,
-  RichText, RichTextInput, Route, Select, Section, SortableList, style, Switch,
+  Modal, ModalSwitch, Menu, MenuItem, NavItem, Navs, Page, Responsive,
+  RichText, RichTextInput, Route, Select, Section, SortableList, stylex, Switch,
   TabItem, Table, Tabs, Text, Textarea, ThemeProvider,
   Time, TimePicker, Tooltip, TruncatedText, useApi, useHistory, useLocation,
   useModalState, useParams, useResponsive, useRouteMatch, useTheme,

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link as RouterLink } from 'react-router-dom';
 
 import focusStyle from './focusStyle';
-import style from './style';
+import stylex from './stylex';
 
 function Link(props) {
   const {
@@ -39,8 +39,9 @@ Link.defaultProps = {
   text: null,
 };
 
-export default style(Link,
+export default stylex(Link,
   {
+    boxSizing: 'border-box',
     color: 'primary',
     textDecoration: 'none',
     '&:hover': {

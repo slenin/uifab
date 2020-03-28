@@ -1,6 +1,6 @@
-import style from './style';
+import stylex from './stylex';
 
-const Image = style('img', {
+const Image = stylex('img', {
   maxHeight: '100%',
   maxWidth: '100%',
   verticalAlign: 'bottom',

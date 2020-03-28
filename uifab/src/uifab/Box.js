@@ -1,6 +1,6 @@
-import style from './style';
+import stylex from './stylex';
 
-const Box = style('div', {
+const Box = stylex('div', {
   boxSizing: 'border-box',
   margin: 0,
   minWidth: 0,

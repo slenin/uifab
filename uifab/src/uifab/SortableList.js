@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 import Box from './Box';
-import style from './style';
+import stylex from './stylex';
 
 function SortableList(props) {
   const {
@@ -90,4 +90,4 @@ SortableList.defaultProps = {
   spacing: 3,
 };
 
-export default style(SortableList);
+export default stylex(SortableList);

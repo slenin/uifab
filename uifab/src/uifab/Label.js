@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import style from './style';
+import stylex from './stylex';
 
 function Label(props) {
   const {
@@ -39,7 +39,7 @@ Label.defaultProps = {
   text: null,
 };
 
-export default style(Label, {
+export default stylex(Label, {
   color: 'muted',
   fontSize: '0.875em',
   mb: 1,

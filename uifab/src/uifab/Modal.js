@@ -6,7 +6,7 @@ import Box from './Box';
 import Error from './Error';
 import Loading from './Loading';
 import Titlebar from './Titlebar';
-import style from './style';
+import stylex from './stylex';
 
 function Modal(props) {
   const {
@@ -118,7 +118,7 @@ Modal.defaultProps = {
   title: null,
 };
 
-export default style(Modal, (props, { css, themeGet }) => css({
+export default stylex(Modal, (props, { css, themeGet }) => css({
   bg: 'white',
   borderColor: 'border',
   borderRadius: 4,

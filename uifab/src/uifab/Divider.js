@@ -1,6 +1,6 @@
-import style from './style';
+import stylex from './stylex';
 
-const Divider = style('div', {
+const Divider = stylex('div', {
   bg: 'border',
   height: 1,
   width: '100%',

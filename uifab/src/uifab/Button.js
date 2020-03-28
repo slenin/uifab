@@ -5,7 +5,7 @@ import Box from './Box';
 import focusStyle from './focusStyle';
 import Icon from './Icon';
 import Link from './Link';
-import style from './style';
+import stylex from './stylex';
 
 function Button(props) {
   const {
@@ -100,7 +100,7 @@ Button.defaultProps = {
   type: 'button',
 };
 
-const StyledButton = style(Button,
+const StyledButton = stylex(Button,
   {
     alignItems: 'center',
     cursor: 'pointer',
@@ -119,7 +119,7 @@ const StyledButton = style(Button,
   (props, { variant }) => (variant({
     prop: 'format',
     variants: {
-      contained: {
+      contain: {
         bg: props.variant,
         borderColor: props.variant,
         borderRadius: 4,
@@ -129,7 +129,7 @@ const StyledButton = style(Button,
         px: 3,
         py: 2,
       },
-      outlined: {
+      outline: {
         bg: 'transparent',
         borderColor: props.variant,
         borderRadius: 4,
@@ -155,7 +155,7 @@ const StyledButton = style(Button,
           opacity: 1,
         },
       },
-      link: {
+      inline: {
         bg: 'transparent',
         border: 0,
         color: props.variant,
@@ -168,7 +168,7 @@ const StyledButton = style(Button,
   })));
 
 StyledButton.defaultProps = {
-  format: 'contained',
+  format: 'contain',
   variant: 'primary',
 };
 

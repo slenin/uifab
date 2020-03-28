@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Button from './Button';
 import Icon from './Icon';
-import style from './style';
+import stylex from './stylex';
 
 function IconButton(props) {
   const {
@@ -12,7 +12,7 @@ function IconButton(props) {
   return (
     <Button
       className={className}
-      format="link"
+      format="inline"
       onClick={(e) => onClick && onClick(e)}
     >
       <Icon
@@ -36,7 +36,7 @@ IconButton.defaultProps = {
   onClick: null,
 };
 
-export default style(IconButton, {
+export default stylex(IconButton, {
   color: 'inherit',
   '&:hover': {
     opacity: 0.8,

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Box from './Box';
 import EllipsisText from './EllipsisText';
-import style from './style';
+import stylex from './stylex';
 
 function Navs(props) {
   const {
@@ -52,4 +52,4 @@ Navs.defaultProps = {
   title: null,
 };
 
-export default style(Navs);
+export default stylex(Navs);

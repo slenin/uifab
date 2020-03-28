@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { useGlobalFilter, useSortBy, useTable } from 'react-table';
 
 import Box from './Box';
-import style from './style';
+import stylex from './stylex';
 
-const Wrapper = style(Box,
+const Wrapper = stylex(Box,
   (props, { css }) => css({
     table: props.tableStyle,
   }));
@@ -104,7 +104,7 @@ Table.defaultProps = {
   },
 };
 
-const StyledTable = style(Table,
+const StyledTable = stylex(Table,
   (props, { css }) => css({
     tr: {
       ':last-child': {

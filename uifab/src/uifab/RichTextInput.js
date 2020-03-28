@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import ReactQuill from 'react-quill';
 
-import style from './style';
+import stylex from './stylex';
 
 import 'react-quill/dist/quill.snow.css';
 
@@ -68,7 +68,7 @@ RichTextInput.defaultProps = {
   value: null,
 };
 
-const StyledRickTextInput = style(RichTextInput,
+const StyledRickTextInput = stylex(RichTextInput,
   {
     borderColor: 'border',
     '.ql-container': {

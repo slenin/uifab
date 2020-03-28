@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Box from './Box';
 import Container from './Container';
-import style from './style';
+import stylex from './stylex';
 
 function Content(props) {
   const {
@@ -41,7 +41,7 @@ Content.defaultProps = {
   container: true,
 };
 
-export default style(Content, {
+export default stylex(Content, {
   minHeight: '100vh',
   minWidth: 'inherit',
   width: '100%',

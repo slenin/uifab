@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 import Container from './Container';
 import Flex from './Flex';
-import style from './style';
+import stylex from './stylex';
 
 function Header(props) {
   const {
     className, children, container,
-    left, right,
+    left, menu, right,
   } = props;
 
   let content = null;
@@ -53,6 +53,10 @@ Header.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
+  menu: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
   right: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
@@ -64,15 +68,17 @@ Header.defaultProps = {
   children: null,
   container: true,
   left: null,
+  menu: null,
   right: null,
 };
 
-export default style(Header, {
+export default stylex(Header, {
   alignItems: 'center',
   borderBottomColor: 'border',
   borderBottomStyle: 'solid',
   borderBottomWidth: 1,
   bg: 'white',
+  minWidth: 'inherit',
   position: 'fixed',
   height: '3rem',
   overflowX: 'auto',

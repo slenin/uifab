@@ -7,7 +7,7 @@ import Button from './Button';
 import EllipsisText from './EllipsisText';
 import Flex from './Flex';
 import Icon from './Icon';
-import style from './style';
+import stylex from './stylex';
 
 function NavItem(props) {
   const {
@@ -19,7 +19,7 @@ function NavItem(props) {
   return (
     <Button
       className={className}
-      format="link"
+      format="inline"
       color={location.pathname === to ? 'primary' : 'inherit'}
       to={to}
       onClick={onClick}
@@ -77,7 +77,7 @@ NavItem.defaultProps = {
 };
 
 
-export default style(NavItem, {
+export default stylex(NavItem, {
   width: '100%',
   '&:hover': {
     color: 'primary',

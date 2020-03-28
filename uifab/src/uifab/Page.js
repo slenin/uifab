@@ -5,7 +5,7 @@ import Box from './Box';
 import Error from './Error';
 import Loading from './Loading';
 import Titlebar from './Titlebar';
-import style from './style';
+import stylex from './stylex';
 
 function Page(props) {
   const {
@@ -75,4 +75,4 @@ Page.defaultProps = {
   title: null,
 };
 
-export default style(Page);
+export default stylex(Page);

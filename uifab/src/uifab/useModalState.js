@@ -10,8 +10,10 @@ class ModalState {
 
   push = (state) => {
     const { pathname } = this.location;
+    const modalState = state;
+    modalState.modal = true;
     this.history.push({
-      pathname, state,
+      pathname, state: modalState,
     });
   }
 

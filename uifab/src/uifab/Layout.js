@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Box from './Box';
-import style from './style';
+import stylex from './stylex';
 
 function Layout(props) {
   const {
@@ -29,7 +29,7 @@ Layout.defaultProps = {
   children: null,
 };
 
-export default style(Layout, (props, { css, themeGet }) => css({
+export default stylex(Layout, (props, { css, themeGet }) => css({
   margin: '0 auto',
   minWidth: themeGet('minimumWidth', '0')(props),
 }));

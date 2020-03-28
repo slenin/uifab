@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactQuill from 'react-quill';
 
-import style from './style';
+import stylex from './stylex';
 
 import 'react-quill/dist/quill.snow.css';
 
@@ -33,7 +33,7 @@ RichText.defaultProps = {
   text: null,
 };
 
-export default style(RichText, {
+export default stylex(RichText, {
   '.ql-container': {
     color: 'inherit',
     fontFamily: 'inherit',

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Dropdown from './Dropdown';
 import TabItem from './TabItem';
-import style from './style';
+import stylex from './stylex';
 
 function DropdownTabItem(props) {
   const {
@@ -50,6 +50,6 @@ DropdownTabItem.defaultProps = {
   text: null,
 };
 
-export default style(DropdownTabItem, {
+export default stylex(DropdownTabItem, {
   color: 'inherit',
 });

@@ -1,7 +1,7 @@
 import Box from './Box';
-import style from './style';
+import stylex from './stylex';
 
-const Flex = style(Box, {
+const Flex = stylex(Box, {
   display: 'flex',
 });
 

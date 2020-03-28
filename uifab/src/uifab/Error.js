@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Text from './Text';
-import style from './style';
+import stylex from './stylex';
 
 function Error(props) {
   const {
@@ -31,7 +31,7 @@ Error.defaultProps = {
   text: null,
 };
 
-export default style(Error, {
+export default stylex(Error, {
   color: 'error',
   mb: 4,
   mt: 4,

@@ -7,7 +7,7 @@ import Box from './Box';
 import Button from './Button';
 import Icon from './Icon';
 import Text from './Text';
-import style from './style';
+import stylex from './stylex';
 
 function TabItem(props) {
   const {
@@ -20,7 +20,7 @@ function TabItem(props) {
   return (
     <Button
       className={className}
-      format="link"
+      format="inline"
       borderBottomColor={isActive ? 'primary' : 'transparent'}
       color={isActive ? 'primary' : 'inherit'}
       flexDirection="column"
@@ -102,7 +102,7 @@ TabItem.defaultProps = {
   text: null,
 };
 
-export default style(TabItem, {
+export default stylex(TabItem, {
   borderBottomWidth: 2,
   borderBottomStyle: 'solid',
   height: '100%',

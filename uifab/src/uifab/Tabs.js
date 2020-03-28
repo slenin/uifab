@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Box from './Box';
 import Divider from './Divider';
-import style from './style';
+import stylex from './stylex';
 
 function Tabs(props) {
   const {
@@ -49,7 +49,7 @@ Tabs.defaultProps = {
   className: null,
 };
 
-export default style(Tabs, {
+export default stylex(Tabs, {
   color: 'muted',
   height: 48,
 });

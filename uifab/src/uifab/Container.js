@@ -1,7 +1,7 @@
 import Box from './Box';
-import style from './style';
+import stylex from './stylex';
 
-const Container = style(Box, (props, { css, themeGet }) => css({
+const Container = stylex(Box, (props, { css, themeGet }) => css({
   margin: '0 auto',
   width: themeGet('containerWidths', '100%')(props),
 }));

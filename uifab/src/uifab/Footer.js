@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Box from './Box';
 import Container from './Container';
-import style from './style';
+import stylex from './stylex';
 
 function Footer(props) {
   const {
@@ -41,7 +41,7 @@ Footer.defaultProps = {
   container: true,
 };
 
-export default style(Footer, {
+export default stylex(Footer, {
   borderTopColor: 'border',
   borderTopStyle: 'solid',
   borderTopWidth: 1,

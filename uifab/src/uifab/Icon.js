@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import style from './style';
+import stylex from './stylex';
 
 function Icon(props) {
   const {
@@ -44,4 +44,4 @@ Icon.defaultProps = {
   spin: false,
 };
 
-export default style(Icon);
+export default stylex(Icon);

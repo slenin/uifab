@@ -5,7 +5,7 @@ import Box from './Box';
 import Flex from './Flex';
 import Icon from './Icon';
 import IconButton from './IconButton';
-import style from './style';
+import stylex from './stylex';
 
 function FormError(props) {
   const {
@@ -50,7 +50,7 @@ FormError.defaultProps = {
   text: null,
 };
 
-export default style(FormError, {
+export default stylex(FormError, {
   p: 2,
   bg: 'error',
   borderRadius: 4,

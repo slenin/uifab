@@ -4,11 +4,11 @@ import ReactDatePicker from 'react-datepicker';
 
 import Box from './Box';
 import inputStyle from './inputStyle';
-import style from './style';
+import stylex from './stylex';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
-const Wrapper = style(Box, {
+const Wrapper = stylex(Box, {
   '.react-datepicker-wrapper': {
     display: 'block',
   },
@@ -54,4 +54,4 @@ TimePicker.defaultProps = {
   value: new Date(),
 };
 
-export default style(TimePicker, inputStyle);
+export default stylex(TimePicker, inputStyle);

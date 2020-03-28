@@ -1,34 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Box from './Box';
 import Button from './Button';
 import Divider from './Divider';
-import style from './style';
+import stylex from './stylex';
 
 function MenuItem(props) {
   const {
     children, className, divider,
     onClick, to, text,
   } = props;
-  const content = (
-    <Box className={className}>
-      {text && text}
-      {children && children}
-    </Box>
-  );
 
   return (
     <>
       <Button
-        format="link"
-        textAlign="left"
-        display="block"
-        width="100%"
+        className={className}
+        format="text"
         onClick={onClick}
         to={to}
       >
-        {content}
+        {text && text}
+        {children && children}
       </Button>
       {divider && <Divider />}
     </>
@@ -59,12 +51,12 @@ MenuItem.defaultProps = {
   text: null,
 };
 
-export default style(MenuItem, {
+export default stylex(MenuItem, {
+  borderRadius: 0,
   color: 'black',
   display: 'block',
   p: 2,
+  textAlign: 'left',
   whiteSpace: 'nowrap',
-  '&:hover': {
-    bg: 'light',
-  },
+  width: '100%',
 });

@@ -29,7 +29,7 @@ const systemStyles = compose(
   shadow,
 );
 
-const style = (component, ...styles) => {
+const stylex = (component, ...styles) => {
   const styledStyles = [];
   for (let i = 0; i < styles.length; i += 1) {
     styledStyles.push((props) => (typeof styles[i] === 'function' ? styles[i](props, { css, variant, themeGet }) : css(styles[i])));
@@ -41,4 +41,4 @@ const style = (component, ...styles) => {
   );
 };
 
-export default style;
+export default stylex;

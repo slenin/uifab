@@ -6,7 +6,7 @@ import Box from './Box';
 import Divider from './Divider';
 import Flex from './Flex';
 import IconButton from './IconButton';
-import style from './style';
+import stylex from './stylex';
 
 function Titlebar(props) {
   const {
@@ -76,4 +76,4 @@ Titlebar.defaultProps = {
   subtitle: null,
 };
 
-export default style(Titlebar);
+export default stylex(Titlebar);

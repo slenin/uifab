@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import focusStyle from './focusStyle';
-import style from './style';
+import stylex from './stylex';
 
 function ExtLink(props) {
   const {
@@ -40,7 +40,7 @@ ExtLink.defaultProps = {
   to: null,
 };
 
-export default style(ExtLink,
+export default stylex(ExtLink,
   {
     color: 'primary',
     textDecoration: 'none',

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import style from './style';
+import stylex from './stylex';
 
 function Text(props) {
   const {
@@ -22,7 +22,10 @@ Text.propTypes = {
     PropTypes.node,
   ]),
   className: PropTypes.string,
-  text: PropTypes.string,
+  text: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
 };
 
 Text.defaultProps = {
@@ -31,4 +34,4 @@ Text.defaultProps = {
   text: null,
 };
 
-export default style(Text);
+export default stylex(Text);

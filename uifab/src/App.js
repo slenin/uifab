@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {
   Box,
   Button,
+  Container,
   Content,
   DatePicker,
   DateTimePicker,
@@ -13,6 +14,8 @@ import {
   ExtLink,
   Flex,
   Footer,
+  Hamburger,
+  HamburgerMenu,
   Header,
   HttpClient,
   Image,
@@ -20,6 +23,7 @@ import {
   Layout,
   Link,
   Modal,
+  Menu,
   MenuItem,
   NavItem,
   Navs,
@@ -71,13 +75,13 @@ const Age = ({ cell }) => (
 
 Age.propTypes = {
   cell: PropTypes.shape({
-    value: PropTypes.string,
+    value: PropTypes.number,
   }).isRequired,
 };
 
 const Status = ({ row, cell }) => (
   <Button
-    format="link"
+    format="inline"
     p={3}
     to={`/${row.values.name}`}
   >
@@ -108,6 +112,7 @@ function App() {
   return (
     <Layout>
       <Header
+        px={[4, 0]}
         left={(
           <Link
             to="/"
@@ -127,11 +132,65 @@ function App() {
               onClick={() => {
               }}
             />
-            <NavItem to="/abc" ml={14} text="Option 2" />
+            <NavItem display={['none', 'block']} to="/abc" ml={14} text="Option 2" />
+            <HamburgerMenu
+              ml={4}
+              openStyle={{ width: '500px' }}
+              closeStyle={{ width: 0 }}
+            >
+              <Menu
+                right={0}
+                height="100vh"
+                position="fixed"
+                top="3rem"
+              >
+                <MenuItem
+                  textAlign="center"
+                  text="Hello"
+                  onClick={() => {
+                    modalState.push({ showModal: true });
+                  }}
+                />
+
+                <MenuItem
+                  textAlign="center"
+                  text="Hello"
+                  to="/len"
+                />
+              </Menu>
+            </HamburgerMenu>
           </Flex>
         )}
       />
-      <Content pt="4rem">
+
+      <Content pt="3rem">
+        <Dropdown
+          left={0}
+          right={0}
+          minHeight="100vh"
+          position="fixed"
+          top="3rem"
+          toggle={(
+            <Button
+              text="Hello"
+            />
+          )}
+          menu={(
+            <>
+              <MenuItem
+                textAlign="center"
+                text="Hello 1"
+                onClick={() => {
+                  modalState.push({ showModal: true });
+                }}
+              />
+              <MenuItem
+                textAlign="center"
+                text="Hello 2"
+              />
+            </>
+          )}
+        />
         <RichTextInput
           borderStyle="solid"
           minLines={5}
@@ -214,28 +273,9 @@ function App() {
           />
 
           <Button
-            format="link"
+            format="inline"
             text="Link"
             to="/link"
-          />
-
-          <Dropdown
-            toggle={(
-              <Button
-                text="Hello"
-              />
-            )}
-            menu={(
-              <>
-                <MenuItem
-                  text="Hello 1"
-                  onClick={() => {
-                    modalState.push({ showModal: true });
-                  }}
-                />
-                <MenuItem text="Hello 2" />
-              </>
-            )}
           />
           <Tabs height={56} color="black">
             <TabItem

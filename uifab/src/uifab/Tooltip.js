@@ -4,7 +4,7 @@ import ReactTooltip from 'react-tooltip';
 
 import Box from './Box';
 import Icon from './Icon';
-import style from './style';
+import stylex from './stylex';
 
 function Tooltip(props) {
   const {
@@ -38,7 +38,7 @@ Tooltip.defaultProps = {
   tooltip: null,
 };
 
-export default style(Tooltip, {
+export default stylex(Tooltip, {
   color: 'muted',
   cursor: 'pointer',
   display: 'inline-block',

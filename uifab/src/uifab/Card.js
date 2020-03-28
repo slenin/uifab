@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Box from './Box';
 import Flex from './Flex';
-import style from './style';
+import stylex from './stylex';
 
 function Card(props) {
   const {
@@ -59,7 +59,7 @@ Card.defaultProps = {
   title: null,
 };
 
-export default style(Card, {
+export default stylex(Card, {
   borderWidth: 1,
   borderColor: 'border',
   borderStyle: 'solid',

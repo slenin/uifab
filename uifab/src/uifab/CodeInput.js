@@ -5,7 +5,7 @@ import 'brace/mode/java';
 import 'brace/theme/monokai';
 
 import Box from './Box';
-import style from './style';
+import stylex from './stylex';
 
 function CodeInput(props) {
   const {
@@ -59,4 +59,4 @@ CodeInput.defaultProps = {
   value: null,
 };
 
-export default style(CodeInput);
+export default stylex(CodeInput);
