@@ -140,11 +140,11 @@ function App() {
               menu={(
                 <Menu
                   right={0}
-                  height="100vh"
+                  left={0}
                   position="fixed"
                   top="3rem"
-                  openStyle={{ width: '500px' }}
-                  closeStyle={{ visibility: 'hidden', width: 0 }}
+                  openStyle={{ height: '100vh' }}
+                  closeStyle={{ visibility: 'hidden', height: 0 }}
                   style={{ transition: '0.4s' }}
                 >
                   <MenuItem
