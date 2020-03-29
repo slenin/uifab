@@ -72,7 +72,7 @@ export default stylex(Header, {
   borderBottomColor: 'border',
   borderBottomStyle: 'solid',
   borderBottomWidth: 1,
-  bg: 'white',
+  bg: 'bg',
   minWidth: 'inherit',
   position: 'fixed',
   height: '3rem',

@@ -53,7 +53,7 @@ MenuItem.defaultProps = {
 
 export default stylex(MenuItem, {
   borderRadius: 0,
-  color: 'black',
+  color: 'fg',
   display: 'block',
   p: 2,
   textAlign: 'left',

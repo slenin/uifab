@@ -83,7 +83,8 @@ Menu.defaultProps = {
 };
 
 export default stylex(Menu, {
-  bg: 'white',
+  bg: 'bg',
+  color: 'fg',
   fontSize: 'inherit',
   minWidth: 'auto',
   overflow: 'hidden',

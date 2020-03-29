@@ -119,12 +119,13 @@ Modal.defaultProps = {
 };
 
 export default stylex(Modal, (props, { css, themeGet }) => css({
-  bg: 'white',
+  bg: 'bg',
   borderColor: 'border',
   borderRadius: 4,
   borderStyle: 'solid',
   borderWidth: [0, 1],
   bottom: 0,
+  color: 'fg',
   minHeight: ['100vh', 0],
   left: 0,
   marginBottom: [0, 40],

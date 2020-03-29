@@ -48,7 +48,7 @@ function Field(props) {
 
       {fprops && fprops.touched[name] && fprops.errors[name] && (
         <Text
-          color="error-dark"
+          color="error"
           fontSize="0.75em"
           mt={1}
           text={fprops.errors[name]}

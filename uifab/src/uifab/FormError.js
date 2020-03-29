@@ -54,5 +54,5 @@ export default stylex(FormError, {
   p: 2,
   bg: 'error',
   borderRadius: 4,
-  color: 'white',
+  color: 'bg',
 });

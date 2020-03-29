@@ -277,7 +277,7 @@ function App() {
             text="Link"
             to="/link"
           />
-          <Tabs height={56} color="black">
+          <Tabs height={56} color="fg">
             <TabItem
               text="Home"
               to="/"

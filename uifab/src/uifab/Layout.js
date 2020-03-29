@@ -30,6 +30,8 @@ Layout.defaultProps = {
 };
 
 export default stylex(Layout, (props, { css, themeGet }) => css({
+  color: 'fg',
+  bg: 'bg',
   margin: '0 auto',
   minWidth: themeGet('minimumWidth', '0')(props),
 }));

@@ -87,7 +87,7 @@ Hamburger.propTypes = {
 Hamburger.defaultProps = {
   animationDuration: 0.4,
   className: null,
-  iconColor: 'black',
+  iconColor: 'fg',
   iconHeight: 14,
   lineRadius: 16,
   iconWidth: 20,

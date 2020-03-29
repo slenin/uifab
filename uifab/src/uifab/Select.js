@@ -32,13 +32,46 @@ function Select(props) {
       }}
       isSearchable={isSearchable}
       styles={{
-        menu: (menuStyles) => ({ ...menuStyles, zIndex: 999 }),
-        control: (controlStyles, state) => ({
-          ...controlStyles,
+        menu: (styles) => ({
+          ...styles,
+          backgroundColor: theme.colors.bg,
+          borderColor: theme.colors.border,
+          borderStyle: 'solid',
+          borderWidth: 1,
+          boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.2)',
+          color: theme.colors.fg,
+          zIndex: 999,
+        }),
+        control: (styles, state) => ({
+          ...styles,
+          backgroundColor: theme.colors.bg,
           borderColor: state.isFocused ? theme.colors.primary : theme.colors.border,
           boxShadow: state.isFocused ? 0 : 0,
+          color: theme.colors.fg,
           '&:hover': {
             borderColor: theme.colors.primary,
+          },
+        }),
+        singleValue: (styles) => ({
+          ...styles,
+          color: theme.colors.fg,
+        }),
+        option: (styles, state) => ({
+          ...styles,
+          backgroundColor: state.isSelected ? theme.colors.primary : null,
+          '&:hover': {
+            backgroundColor: state.isSelected ? null : theme.colors['bg-light'],
+          },
+        }),
+        indicatorSeparator: (styles) => ({
+          ...styles,
+          backgroundColor: theme.colors.border,
+        }),
+        dropdownIndicator: (styles, state) => ({
+          ...styles,
+          color: state.selectProps.menuIsOpen ? theme.colors.fg : theme.colors.border,
+          '&:hover': {
+            color: state.selectProps.menuIsOpen ? theme.colors.fg : theme.colors.muted,
           },
         }),
       }}

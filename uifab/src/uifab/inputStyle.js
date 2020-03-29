@@ -1,9 +1,11 @@
 const inputStyle = {
+  bg: 'bg',
   borderColor: 'border',
   borderRadius: 4,
   borderStyle: 'solid',
   borderWidth: 1,
   boxSizing: 'border-box',
+  color: 'fg',
   display: 'block',
   fontFamily: 'inherit',
   fontSize: 'inherit',

@@ -30,7 +30,7 @@ Badge.defaultProps = {
 export default stylex(Badge, {
   borderRadius: 4,
   bg: 'error',
-  color: 'white',
+  color: 'bg',
   fontSize: '0.75em',
   pl: 1,
   pr: 1,

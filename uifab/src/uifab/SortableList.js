@@ -80,7 +80,7 @@ SortableList.propTypes = {
 };
 
 SortableList.defaultProps = {
-  bgDragging: 'light',
+  bgDragging: 'bg-light',
   bgNormal: 'inherit',
   className: null,
   items: [],
