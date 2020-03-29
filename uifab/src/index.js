@@ -5,7 +5,6 @@ import { FabProvider } from 'uifab';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import customTheme from './customTheme';
 
 import './index.css';
 
@@ -14,7 +13,6 @@ const rootElement = document.getElementById('root');
 ReactDOM.render(
   <FabProvider
     rootElement={rootElement}
-    theme={customTheme}
   >
     <App />
   </FabProvider>,

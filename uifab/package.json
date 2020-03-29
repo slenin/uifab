@@ -1,6 +1,6 @@
 {
   "name": "uifab",
-  "version": "0.4.0",
+  "version": "0.5.1",
   "private": false,
   "license": "MIT",
   "main": "dist/index.js",

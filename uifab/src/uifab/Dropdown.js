@@ -8,7 +8,7 @@ import stylex from './stylex';
 function Dropdown(props) {
   const {
     alignRight, className, closeOnClick, closeOnOutsideClick,
-    menu, menuContent, menuStyle, toggle,
+    menu, menuContent, menuStyle, preventDefaultOnClick, toggle,
   } = props;
 
   let toggleMenu = menu;
@@ -24,6 +24,7 @@ function Dropdown(props) {
         top="100%"
         closeStyle={{ display: 'none' }}
         style={menuStyle}
+        preventDefaultOnClick={preventDefaultOnClick}
       >
         {menuContent}
       </Menu>
@@ -56,6 +57,7 @@ Dropdown.propTypes = {
     PropTypes.node,
   ]),
   menuStyle: PropTypes.shape({}),
+  preventDefaultOnClick: PropTypes.bool,
   toggle: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
@@ -70,6 +72,7 @@ Dropdown.defaultProps = {
   menu: null,
   menuContent: null,
   menuStyle: null,
+  preventDefaultOnClick: true,
   toggle: null,
 };
 
