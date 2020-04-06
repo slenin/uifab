@@ -38,6 +38,7 @@ import {
   ToggleMenu,
   useApi,
   useModalState,
+  useResponsive,
 } from 'uifab';
 
 const http = new HttpClient(`${window.location.origin}`, 'json', null);
@@ -100,6 +101,7 @@ Status.propTypes = {
 };
 
 function App() {
+  const isMd = useResponsive('sm');
   const modalState = useModalState();
   const { showModal } = modalState.get();
   const {
@@ -143,9 +145,9 @@ function App() {
                   left={0}
                   position="fixed"
                   top="3rem"
+                  height={0}
                   openStyle={{ height: '100vh' }}
-                  closeStyle={{ visibility: 'hidden', height: 0 }}
-                  style={{ transition: '0.4s' }}
+                  style={{ transition: '0.5s' }}
                 >
                   <MenuItem
                     textAlign="center"
@@ -226,6 +228,7 @@ function App() {
               <Input onChange={(e) => setFilter(e.target.value)} />
               <Table
                 borderRadius={4}
+                hiddenColumns={[...(!isMd ? ['status'] : [])]}
                 columns={[
                   {
                     Header: <Th title="Name" />,

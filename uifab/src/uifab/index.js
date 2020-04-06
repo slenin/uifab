@@ -65,8 +65,6 @@ import {
   useHistory, useLocation, useParams, useRouteMatch,
 } from './router';
 
-import './uifab.css';
-
 export {
   Badge, Box, Button, Card, CodeInput, Container, Content, DatePicker,
   Divider, DateTimePicker, Dropdown, DropdownTabItem,

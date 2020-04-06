@@ -25,7 +25,6 @@ function ToggleMenu(props) {
     <Flex
       ref={ref}
       className={className}
-      display="inline-flex"
     >
       {toggle && React.cloneElement(toggle, {
         onClick: () => setOpen(!open),
@@ -61,4 +60,6 @@ ToggleMenu.defaultProps = {
   toggle: null,
 };
 
-export default stylex(ToggleMenu);
+export default stylex(ToggleMenu, {
+  position: 'relative',
+});

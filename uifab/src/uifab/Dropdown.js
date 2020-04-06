@@ -34,7 +34,7 @@ function Dropdown(props) {
   return (
     <ToggleMenu
       className={className}
-      position="relative"
+      display="inline-flex"
       toggle={toggle}
       menu={toggleMenu}
       closeOnClick={closeOnClick}

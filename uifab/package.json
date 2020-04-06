@@ -1,6 +1,6 @@
 {
   "name": "uifab",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "private": false,
   "license": "MIT",
   "main": "dist/index.js",
@@ -13,7 +13,12 @@
       "@babel/plugin-proposal-class-properties"
     ]
   },
-  "keywords": ["react", "react ui", "react components", "styled system"],
+  "keywords": [
+    "react",
+    "react ui",
+    "react components",
+    "styled system"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/slenin/uifab.git"

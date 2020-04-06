@@ -13,7 +13,8 @@ const Wrapper = stylex(Box,
 function Table(props) {
   const {
     className, columns, data,
-    globalFilter, noData, tableStyle,
+    globalFilter, hiddenColumns,
+    noData, tableStyle,
   } = props;
   const {
     getTableProps,
@@ -26,6 +27,9 @@ function Table(props) {
     {
       columns,
       data,
+      initialState: {
+        hiddenColumns,
+      },
     },
     useGlobalFilter,
     useSortBy,
@@ -87,6 +91,9 @@ Table.propTypes = {
     PropTypes.shape({}),
   ).isRequired,
   globalFilter: PropTypes.string,
+  hiddenColumns: PropTypes.arrayOf(
+    PropTypes.string,
+  ),
   noData: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
@@ -97,6 +104,7 @@ Table.propTypes = {
 Table.defaultProps = {
   className: null,
   globalFilter: '',
+  hiddenColumns: [],
   noData: null,
   tableStyle: {
     borderSpacing: 0,

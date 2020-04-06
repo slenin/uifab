@@ -51,7 +51,7 @@ function Modal(props) {
         )}
         {!error && (
           <Box
-            px={removePadding ? 0 : 6}
+            px={removePadding ? 0 : [3, 6]}
             pt={removePadding ? 0 : 3}
             pb={removePadding ? 0 : 6}
           >

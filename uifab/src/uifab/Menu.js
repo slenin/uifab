@@ -86,8 +86,8 @@ export default stylex(Menu, {
   bg: 'bg',
   color: 'fg',
   fontSize: 'inherit',
-  minWidth: 'auto',
   overflow: 'hidden',
   position: 'absolute',
   zIndex: 1,
+  '-webkit-backface-visibility': 'hidden',
 });

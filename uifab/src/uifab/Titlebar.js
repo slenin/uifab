@@ -21,7 +21,7 @@ function Titlebar(props) {
       <Flex
         className={className}
         alignItems="center"
-        px={modal ? 6 : 3}
+        px={modal ? [3, 6] : 3}
         py={subtitle ? 2 : 3}
       >
         {backButton && (

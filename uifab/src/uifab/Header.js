@@ -76,7 +76,6 @@ export default stylex(Header, {
   minWidth: 'inherit',
   position: 'fixed',
   height: '3rem',
-  overflowX: 'auto',
   top: 0,
   width: '100%',
   zIndex: 1,
