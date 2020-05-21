@@ -7,7 +7,7 @@ class Time {
 
   static date = (timestamp) => new Date(timestamp * 1000);
 
-  static format = (timestamp, format) => moment(this.parseTimestamp(timestamp)).format(format || 'ddd, MMM DD LT');
+  static format = (timestamp, format) => moment(Time.date(timestamp)).format(format || 'ddd, MMM DD, YYYY LTS');
 
   static ago = (timestamp) => {
     const now = Math.floor(new Date().getTime() / 1000);

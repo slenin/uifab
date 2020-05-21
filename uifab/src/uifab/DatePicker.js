@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import ReactDatePicker from 'react-datepicker';
 
@@ -19,6 +19,10 @@ function DatePicker(props) {
     className, name, onChange, value,
   } = props;
   const [valueState, setValue] = useState(value);
+
+  useEffect(() => {
+    setValue(value);
+  }, [value]);
 
   return (
     <Wrapper>

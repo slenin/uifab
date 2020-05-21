@@ -110,6 +110,7 @@ function App() {
 
   const [richTextValue, setRichTextValue] = useState(null);
   const [filter, setFilter] = useState('');
+  const [date, setDate] = useState(new Date());
   return (
     <Layout>
       <Header
@@ -170,6 +171,10 @@ function App() {
       />
 
       <Content pt="3rem">
+        <DateTimePicker
+          onChange={(e) => setDate(e.target.value)}
+        />
+        {Time.format(Time.now())}
         <Dropdown
           toggle={(
             <Button
