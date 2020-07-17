@@ -27,7 +27,10 @@ function ToggleMenu(props) {
       className={className}
     >
       {toggle && React.cloneElement(toggle, {
-        onClick: () => setOpen(!open),
+        onClick: (e) => {
+          e.stopPropagation();
+          setOpen(!open);
+        },
         open,
       })}
       {menu && React.cloneElement(menu, {

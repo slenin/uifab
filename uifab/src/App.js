@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {
   Box,
   Button,
+  CodeInput,
   Content,
   DatePicker,
   DateTimePicker,
@@ -11,7 +12,9 @@ import {
   DropdownTabItem,
   EllipsisText,
   ExtLink,
+  Field,
   Flex,
+  Form,
   Footer,
   Hamburger,
   Header,
@@ -114,6 +117,7 @@ function App() {
   return (
     <Layout>
       <Header
+        zIndex={100}
         px={[4, 0]}
         left={(
           <Link
@@ -171,7 +175,31 @@ function App() {
       />
 
       <Content pt="3rem">
+
+        <Form
+          p={4}
+          initialValues={{
+            name: 'Hello',
+          }}
+          action="Update"
+          onSubmit={async () => {
+          }}
+          fields={() => (
+            <Field
+              label="Name"
+              name="name"
+              component={<Input />}
+              tooltip="xyz"
+            />
+          )}
+        />
+
+        <CodeInput
+          value="x"
+          readOnly
+        />
         <DateTimePicker
+          value={date}
           onChange={(e) => setDate(e.target.value)}
         />
         {Time.format(Time.now())}

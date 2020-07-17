@@ -36,6 +36,7 @@ function Field(props) {
       {React.cloneElement(component, {
         name,
         onChange: onChange || (fprops && fprops.handleChange),
+        value: fprops.values[name],
       })}
 
       {footer && (

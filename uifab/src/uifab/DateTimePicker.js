@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Box from './Box';
@@ -12,10 +12,6 @@ function DateTimePicker(props) {
     className, name, onChange, value,
   } = props;
   const [valueState, setValue] = useState(value);
-
-  useEffect(() => {
-    setValue(value);
-  }, [value]);
 
   return (
     <Flex className={className}>

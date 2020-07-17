@@ -9,7 +9,7 @@ import stylex from './stylex';
 
 function CodeInput(props) {
   const {
-    className, minLines, name, onChange, value,
+    className, minLines, name, onChange, readOnly, value,
   } = props;
   const [valueState, setValue] = useState(value || '');
 
@@ -38,6 +38,7 @@ function CodeInput(props) {
         width="100%"
         minLines={minLines}
         maxLines={Infinity}
+        readOnly={readOnly}
       />
     </Box>
   );
@@ -48,6 +49,7 @@ CodeInput.propTypes = {
   minLines: PropTypes.number,
   name: PropTypes.string,
   onChange: PropTypes.func,
+  readOnly: PropTypes.bool,
   value: PropTypes.string,
 };
 
@@ -56,6 +58,7 @@ CodeInput.defaultProps = {
   minLines: 10,
   name: 'code',
   onChange: null,
+  readOnly: false,
   value: null,
 };
 
